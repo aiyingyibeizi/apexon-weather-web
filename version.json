@@ -1,86 +1,66 @@
 {
   "id": "com.apexon.weather",
   "platform": "android",
-  "version": "2.9.0",
-  "versionCode": 36,
-  "releaseDate": "2026-11-18",
-  "size": 38239315,
+  "version": "2.9.1",
+  "versionCode": 37,
+  "releaseDate": "2026-11-19",
+  "size": 38243635,
   "sizeText": "36.47 MB",
-  "sha256": "0E2289072C3073653E98E8BF074CCAEBF52FE99B5D4EE1B418AEF24FC17BC880",
-  "fileName": "apexon-weather-2.9.0.apk",
-  "downloadUrl": "https://weather.apexon.qzz.io/apps/apexon-weather-2.9.0.apk?v=36",
+  "sha256": "8E6035FD8B2C343A730D368ABBDD1BC11B1DC4C408923CF2ABD07F7E6DC37C34",
+  "fileName": "apexon-weather-2.9.1.apk",
+  "downloadUrl": "https://weather.apexon.qzz.io/apps/apexon-weather-2.9.1.apk?v=37",
   "minAndroidSdk": 24,
   "minOsVersion": "Android 7.0",
   "notes": {
     "zh-CN": [
-      "夜间不再是静态一张图：新增星点呼吸、月晕起伏与偶发流星，白天和夜里都有动。",
-      "深色主题下场景底部渐隐加长，顶部影像会「沉」进内容区，不再是上亮下黑一条硬边。",
-      "视频解码优化：滚动、切到后台、低画质或省流量时自动停播并释放解码器；浅色主题也恢复动态背景。",
-      "电脑端设置等面板改为居中对话框，鼠标悬停有明确反馈，不再从屏幕底部抽出一整条。",
-      "配色整体重做：海洋蓝主色 + 青绿副色 + 暖砂强调，浅色底去掉发闷的紫调。"
+      "设置新增「动态背景」开关：一键停掉全屏视频与夜空动画，只保留静态渐变，低配设备帧率提升最明显。",
+      "「动效」选项更名为「降低动效」，开启后同时停用场景动画与视频解码。",
+      "关闭动态背景后天气信息、配色与布局完全不变，只是画面不再动。"
     ],
     "zh-TW": [
-      "夜晚不再是一張靜態圖：新增星點呼吸、月暈起伏與偶發流星，白天和夜裡都有動。",
-      "深色主題下場景底部漸隱加長，頂部影像會「沉」進內容區，不再是上亮下黑一條硬邊。",
-      "影片解碼最佳化：捲動、切到背景、低畫質或省流量時自動停播並釋放解碼器；淺色主題也恢復動態背景。",
-      "電腦端設定等面板改為置中對話框，滑鼠懸停有明確回饋，不再從螢幕底部抽出一整條。",
-      "配色整體重做：海洋藍主色 + 青綠副色 + 暖砂強調，淺色底去掉發悶的紫調。"
+      "設定新增「動態背景」開關：一鍵停掉全螢幕影片與夜空動畫，只保留靜態漸層，低配裝置幀率提升最明顯。",
+      "「動效」選項更名為「降低動效」，開啟後同時停用場景動畫與影片解碼。",
+      "關閉動態背景後天氣資訊、配色與版面完全不變，只是畫面不再動。"
     ],
     "en": [
-      "Night is no longer a still image: twinkling stars, a breathing moon halo and occasional meteors keep both day and night alive.",
-      "On dark themes the scene now fades further into the content area, removing the hard bright-top / dark-bottom edge.",
-      "Smarter video decoding: playback stops and the decoder is released while scrolling, in the background, on low quality or on metered connections. Light themes get motion back too.",
-      "On desktop, settings and other panels open as a centred dialog with clear hover feedback instead of a full-width sheet from the bottom.",
-      "Full palette rework: ocean blue primary, teal secondary and warm sand accent; the muddy purple tint is gone from light backgrounds."
+      "New \"Animated background\" switch: stops the full-screen video and night sky animations at once, keeping only the static gradient. The biggest frame-rate win on low-end devices.",
+      "The \"Motion\" option is now \"Reduced motion\" and also stops scene animation and video decoding.",
+      "With the animated background off, weather data, colours and layout stay exactly the same — only the motion is gone."
     ],
     "ja": [
-      "夜が静止画ではなくなりました。星の瞬き、月の暈の呼吸、ときどき流れ星で、昼も夜も動き続けます。",
-      "ダークテーマではシーンの下端をより長くフェードさせ、上部の映像が内容へ自然に沈み込みます。",
-      "動画デコードを最適化：スクロール中、バックグラウンド、低画質、通信節約時は再生を止めてデコーダを解放。ライトテーマでも動きが戻ります。",
-      "デスクトップでは設定パネルが中央のダイアログで開き、ホバーにも反応します。画面下から全幅で迫ることはありません。",
-      "配色を全面刷新：オーシャンブルー、ティール、ウォームサンド。明るい背景の濁った紫味を排除しました。"
+      "設定に「動く背景」スイッチを追加。全画面動画と夜空のアニメーションをまとめて停止し、静的なグラデーションのみにできます。低スペック端末ほど効果的です。",
+      "「モーション」を「モーションを減らす」に改称。オンにするとシーンのアニメーションと動画デコードも停止します。",
+      "動く背景をオフにしても天気情報・配色・レイアウトは変わらず、動きだけが止まります。"
     ],
     "ko": [
-      "밤이 더 이상 정지 화면이 아닙니다. 별의 깜빡임, 달무리 호흡, 간간이 흐르는 별똥별로 낮과 밤 모두 움직입니다.",
-      "다크 테마에서는 장면 하단 페이드를 길게 늘려 상단 영상이 콘텐츠로 자연스럽게 이어집니다.",
-      "동영상 디코딩 최적화: 스크롤, 백그라운드, 저화질, 데이터 절약 시 재생을 멈추고 디코더를 해제합니다. 라이트 테마에서도 움직임이 돌아왔습니다.",
-      "데스크톱에서는 설정 패널이 화면 중앙 대화상자로 열리고 마우스 오버에도 반응합니다.",
-      "팔레트 전면 개편: 오션 블루, 틸, 웜 샌드. 밝은 배경의 탁한 보라 기운을 제거했습니다."
+      "설정에 「동적 배경」 스위치를 추가했습니다. 전체 화면 동영상과 밤하늘 애니메이션을 한 번에 끄고 정적 그라데이션만 남깁니다. 저사양 기기에서 효과가 가장 큽니다.",
+      "「모션」을 「모션 줄이기」로 바꿨으며, 켜면 장면 애니메이션과 동영상 디코딩도 중지됩니다.",
+      "동적 배경을 꺼도 날씨 정보, 색상, 레이아웃은 그대로이며 움직임만 사라집니다."
     ],
     "fr": [
-      "La nuit n'est plus une image fixe : étoiles scintillantes, halo lunaire qui respire et météores occasionnels animent le jour comme la nuit.",
-      "En thème sombre, le bas de la scène s'efface plus loin dans le contenu, supprimant la rupture entre haut clair et bas sombre.",
-      "Décodage vidéo optimisé : lecture suspendue et décodeur libéré pendant le défilement, en arrière-plan, en basse qualité ou en mode économie. Les thèmes clairs retrouvent du mouvement.",
-      "Sur ordinateur, les réglages s'ouvrent dans une fenêtre centrée avec un retour au survol, au lieu d'une feuille plein écran.",
-      "Palette entièrement revue : bleu océan, turquoise et sable chaud ; la teinte violette terne du fond clair a disparu."
+      "Nouveau réglage « Fond animé » : coupe d’un coup la vidéo plein écran et les animations du ciel nocturne, en ne gardant que le dégradé statique. Le gain de fluidité est le plus net sur les appareils modestes.",
+      "L’option « Animations » devient « Réduire les animations » et arrête aussi l’animation de la scène et le décodage vidéo.",
+      "Fond animé désactivé, les données météo, les couleurs et la mise en page restent identiques : seul le mouvement disparaît."
     ],
     "de": [
-      "Die Nacht ist keine Standbild mehr: funkelnde Sterne, ein atmender Mondhof und gelegentliche Meteore bewegen Tag und Nacht.",
-      "Im dunklen Theme blendet die Szene weiter in den Inhalt aus – die harte Kante zwischen hellem oben und dunklem unten ist weg.",
-      "Video-Dekodierung optimiert: beim Scrollen, im Hintergrund, bei niedriger Qualität oder Datensparmodus wird pausiert und der Decoder freigegeben. Auch helle Themes sind wieder animiert.",
-      "Auf dem Desktop öffnen Einstellungen als zentrierter Dialog mit Hover-Feedback statt als breite Leiste von unten.",
-      "Palette komplett überarbeitet: Ozeanblau, Türkis und warmer Sand; der trübe Lilastich im hellen Hintergrund ist weg."
+      "Neuer Schalter „Animierter Hintergrund“: stoppt Vollbildvideo und Nachthimmel-Animationen auf einmal und lässt nur den statischen Verlauf übrig. Auf schwächeren Geräten der größte Bildratengewinn.",
+      "Die Option „Bewegung“ heißt jetzt „Bewegung reduzieren“ und stoppt zusätzlich Szenenanimation und Videodekodierung.",
+      "Bei ausgeschaltetem Hintergrund bleiben Wetterdaten, Farben und Layout unverändert – nur die Bewegung entfällt."
     ],
     "es": [
-      "La noche ya no es una imagen fija: estrellas parpadeantes, halo lunar que respira y meteoros ocasionales animan de día y de noche.",
-      "En temas oscuros la escena se desvanece más hacia el contenido, eliminando el corte entre arriba claro y abajo oscuro.",
-      "Decodificación de vídeo optimizada: se pausa y libera el decodificador al desplazar, en segundo plano, con baja calidad o ahorro de datos. Los temas claros recuperan el movimiento.",
-      "En escritorio, los ajustes se abren como un diálogo centrado con respuesta al pasar el ratón, no como una hoja a pantalla completa.",
-      "Paleta renovada: azul océano, turquesa y arena cálida; el tono violeta apagado del fondo claro desaparece."
+      "Nuevo ajuste «Fondo animado»: detiene a la vez el vídeo a pantalla completa y las animaciones del cielo nocturno, dejando solo el degradado estático. Es la mayor mejora de fluidez en equipos modestos.",
+      "La opción «Movimiento» pasa a «Reducir movimiento» y también detiene la animación de la escena y la decodificación de vídeo.",
+      "Con el fondo animado desactivado, los datos, los colores y el diseño no cambian: solo desaparece el movimiento."
     ],
     "pt": [
-      "A noite deixou de ser uma imagem estática: estrelas a cintilar, halo lunar a respirar e meteoros ocasionais animam o dia e a noite.",
-      "Nos temas escuros a cena desvanece mais para dentro do conteúdo, eliminando a transição dura entre topo claro e fundo escuro.",
-      "Descodificação de vídeo otimizada: pausa e liberta o descodificador ao deslocar, em segundo plano, com baixa qualidade ou poupança de dados. Os temas claros voltam a ter movimento.",
-      "No computador, as definições abrem num diálogo centrado com resposta ao passar o rato, em vez de uma folha de baixo.",
-      "Paleta renovada: azul oceano, turquesa e areia quente; o tom violeta baço do fundo claro desapareceu."
+      "Nova opção «Fundo animado»: para de uma vez o vídeo em ecrã inteiro e as animações do céu noturno, mantendo apenas o gradiente estático. É o maior ganho de fluidez em equipamentos modestos.",
+      "A opção «Movimento» passa a «Reduzir movimento» e também para a animação da cena e a descodificação de vídeo.",
+      "Com o fundo animado desativado, os dados, as cores e o layout mantêm-se iguais: só o movimento desaparece."
     ],
     "ru": [
-      "Ночь больше не статичная картинка: мерцающие звёзды, дышащий лунный ореол и редкие метеоры оживляют и день, и ночь.",
-      "В тёмной теме сцена плавнее уходит в контент — резкой границы между светлым верхом и тёмным низом больше нет.",
-      "Оптимизировано декодирование видео: при прокрутке, в фоне, в низком качестве и при экономии трафика воспроизведение останавливается и декодер освобождается. В светлых темах движение вернулось.",
-      "На компьютере настройки открываются в центрированном диалоге с откликом на наведение, а не широкой панелью снизу.",
-      "Полностью обновлена палитра: океанический синий, бирюза и тёплый песок; тусклый фиолетовый оттенок светлого фона убран."
+      "Новый переключатель «Анимированный фон»: сразу останавливает полноэкранное видео и анимацию ночного неба, оставляя только статичный градиент. На слабых устройствах это самый заметный прирост частоты кадров.",
+      "Пункт «Анимация» переименован в «Меньше анимации» и теперь также останавливает анимацию сцены и декодирование видео.",
+      "При выключенном фоне данные о погоде, цвета и вёрстка не меняются — исчезает только движение."
     ]
   }
 }
