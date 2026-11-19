@@ -2,14 +2,17 @@
   "name": "APEXON Weather",
   "short_name": "APEXON",
   "description": "企业级天气应用，实时天气、逐小时预报、7天趋势、空气质量，支持全国城市查询。",
-  "start_url": "/index.html",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#020617",
   "theme_color": "#6366f1",
   "scope": "/",
   "lang": "zh-CN",
-  "categories": ["weather", "utilities"],
+  "categories": [
+    "weather",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "assets/icons/apexon/icon-72x72.png",
@@ -72,14 +75,33 @@
       "short_name": "刷新",
       "description": "立即刷新当前城市天气",
       "url": "index.html#home?refresh=1",
-      "icons": [{ "src": "assets/icons/apexon/icon-96x96.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "assets/icons/apexon/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "管理城市",
       "short_name": "城市",
       "description": "添加或切换关注城市",
       "url": "index.html#cities",
-      "icons": [{ "src": "assets/icons/apexon/icon-96x96.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "assets/icons/apexon/icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
     }
-  ]
+  ],
+  "id": "/",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "prefer_related_applications": false
 }

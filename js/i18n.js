@@ -5825,6 +5825,62 @@ const V294_CHANGELOG = {
   ],
 };
 
+/**
+ * v2.9.6 —— 网页版可安装到桌面
+ */
+const V296_CHANGELOG = {
+  'zh-CN': [
+    '网页版可以直接安装到桌面：安卓与桌面 Chrome 走系统安装框，iPhone / iPad 用「分享 → 添加到主屏幕」，装完和 APK 一样全屏运行。',
+    '设置里新增「安装到桌面」入口，检测到已经在独立窗口运行（含 APK）时自动隐藏，浏览器没有开放安装时给出换用 Chrome / Edge 的说明。',
+    '补全 manifest 的 id、display_override 与启动方式，满足浏览器的可安装判定。',
+  ],
+  'zh-TW': [
+    '網頁版可以直接安裝到桌面：Android 與桌面 Chrome 走系統安裝框，iPhone / iPad 用「分享 → 加入主畫面」，裝完和 APK 一樣全螢幕執行。',
+    '設定裡新增「安裝到桌面」入口，偵測到已在獨立視窗執行（含 APK）時自動隱藏，瀏覽器未開放安裝時會提示改用 Chrome / Edge。',
+    '補齊 manifest 的 id、display_override 與啟動方式，符合瀏覽器的可安裝判定。',
+  ],
+  en: [
+    'The web app can now be installed to the home screen: Android and desktop Chrome use the system install prompt, and iPhone/iPad use Share → Add to Home Screen, running full screen like the APK.',
+    'Added an "Install to home screen" entry in Settings. It hides itself when already running standalone (including the APK) and explains how to switch to Chrome/Edge when the browser has no install entry.',
+    'Completed the manifest (id, display_override, launch handler) so browsers recognise the app as installable.',
+  ],
+  ja: [
+    'Web 版をホーム画面にインストールできるようになりました。Android / デスクトップ Chrome はシステムのインストール画面、iPhone / iPad は「共有 → ホーム画面に追加」を使います。',
+    '設定に「ホーム画面に追加」を追加しました。APK を含むスタンドアロン実行中は自動的に非表示になり、インストール入口のないブラウザでは Chrome / Edge の利用を案内します。',
+    'manifest に id・display_override・起動方法を補い、ブラウザのインストール判定を満たすようにしました。',
+  ],
+  ko: [
+    '웹 앱을 홈 화면에 설치할 수 있습니다. Android와 데스크톱 Chrome은 시스템 설치 창을, iPhone/iPad는 공유 → 홈 화면에 추가를 사용합니다.',
+    '설정에 「홈 화면에 추가」 항목을 넣었습니다. APK를 포함해 독립 창으로 실행 중이면 자동으로 숨기고, 설치 메뉴가 없는 브라우저에서는 Chrome / Edge 안내를 표시합니다.',
+    'manifest에 id, display_override, 실행 방식을 보완해 브라우저 설치 조건을 충족했습니다.',
+  ],
+  fr: [
+    "L'application web peut désormais être installée sur l'écran d'accueil : Android et Chrome utilisent l'invite système, iPhone/iPad passent par Partager → Sur l'écran d'accueil.",
+    'Nouvelle entrée « Installer sur l’écran d’accueil » dans les réglages : masquée en mode autonome (APK inclus), avec une consigne Chrome / Edge si le navigateur n’offre pas d’installation.',
+    'Manifest complété (id, display_override, mode de lancement) pour satisfaire les critères d’installation des navigateurs.',
+  ],
+  de: [
+    'Die Web-App lässt sich jetzt zum Startbildschirm hinzufügen: Android und Chrome nutzen den Systemdialog, iPhone/iPad „Teilen → Zum Startbildschirm“.',
+    'In den Einstellungen gibt es nun „Zum Startbildschirm hinzufügen“; im eigenständigen Fenster (auch APK) ausgeblendet, mit Chrome-/Edge-Hinweis, wenn der Browser keine Installation anbietet.',
+    'Manifest vervollständigt (id, display_override, Startmodus), damit Browser die App als installierbar erkennen.',
+  ],
+  es: [
+    'La versión web ya se puede instalar en la pantalla de inicio: Android y Chrome usan el diálogo del sistema, iPhone/iPad usan Compartir → Añadir a pantalla de inicio.',
+    'Nueva entrada «Instalar en la pantalla de inicio» en Ajustes: se oculta si ya se ejecuta como ventana independiente (incluida la APK) y explica cómo usar Chrome o Edge si el navegador no ofrece instalación.',
+    'Manifest completado (id, display_override, modo de inicio) para cumplir los criterios de instalación.',
+  ],
+  pt: [
+    'A versão web agora pode ser instalada na tela inicial: Android e Chrome usam o diálogo do sistema, iPhone/iPad usam Compartilhar → Adicionar à Tela de Início.',
+    'Nova opção «Instalar na tela inicial» nos Ajustes: oculta quando o app já roda em janela própria (incluindo o APK) e orienta a usar Chrome ou Edge se o navegador não oferecer instalação.',
+    'Manifest completado (id, display_override, modo de abertura) para atender aos critérios de instalação.',
+  ],
+  ru: [
+    'Веб-версию теперь можно установить на главный экран: Android и Chrome используют системное окно, iPhone/iPad — «Поделиться → На экран «Домой»».',
+    'В настройках появился пункт «Установить на главный экран»; в отдельном окне (включая APK) он скрывается, а если браузер не предлагает установку — подсказывает открыть Chrome или Edge.',
+    'Манифест дополнен (id, display_override, режим запуска), чтобы браузеры считали приложение устанавливаемым.',
+  ],
+};
+
 /** v2.9.5 —— 帧率角标、安卓显示模式锁定、桌面遮挡检测 */
 const V295_CHANGELOG = {
   'zh-CN': [
@@ -5903,6 +5959,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v293'] = V293_CHANGELOG[lang] || V293_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v294'] = V294_CHANGELOG[lang] || V294_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v295'] = V295_CHANGELOG[lang] || V295_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v296'] = V296_CHANGELOG[lang] || V296_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 
@@ -6292,6 +6349,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': '用全屏循环视频代替静态图，观感更强，但会明显降低帧率；核显设备不建议开启。',
     'settings.backgroundVideoOn': '已开启视频背景',
     'settings.backgroundVideoOff': '已关闭视频背景',
+    'install.title': '安装到桌面',
+    'install.action': '安装',
+    'install.done': '已添加到主屏幕',
+    'install.iosHint': 'iPhone / iPad：点底部「分享」→「添加到主屏幕」（需在 Safari 中打开）。',
+    'install.manualHint': '当前浏览器没有开放直接安装：请用 Chrome / Edge 打开本页，再从右上角菜单选择「安装应用」或「添加到主屏幕」。',
     'settings.backgroundOff': '已关闭动态背景',
     'settings.motionUpdated': '动效设置已更新',
     'help.title': '键盘快捷键',
@@ -6345,6 +6407,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': '用全螢幕循環影片代替靜態圖，觀感更強，但會明顯降低幀率；核顯裝置不建議開啟。',
     'settings.backgroundVideoOn': '已開啟影片背景',
     'settings.backgroundVideoOff': '已關閉影片背景',
+    'install.title': '安裝到桌面',
+    'install.action': '安裝',
+    'install.done': '已加入主畫面',
+    'install.iosHint': 'iPhone / iPad：點底部「分享」→「加入主畫面」（需在 Safari 中開啟）。',
+    'install.manualHint': '目前瀏覽器沒有開放直接安裝：請用 Chrome / Edge 開啟本頁，再從右上角選單選擇「安裝應用程式」或「加到主畫面」。',
     'settings.backgroundOff': '已關閉動態背景',
     'settings.motionUpdated': '動效設定已更新',
     'help.title': '鍵盤快速鍵',
@@ -6398,6 +6465,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': 'Replaces the still image with a full-screen looping video. Looks richer, but costs a lot of frame rate — not recommended on integrated graphics.',
     'settings.backgroundVideoOn': 'Video background on',
     'settings.backgroundVideoOff': 'Video background off',
+    'install.title': 'Install to home screen',
+    'install.action': 'Install',
+    'install.done': 'Added to home screen',
+    'install.iosHint': 'iPhone / iPad: tap Share at the bottom, then “Add to Home Screen” (Safari only).',
+    'install.manualHint': 'This browser exposes no direct install entry. Open the page in Chrome or Edge and choose “Install app” / “Add to Home screen” from the menu.',
     'settings.backgroundOff': 'Animated background off',
     'settings.motionUpdated': 'Motion preference updated',
     'help.title': 'Keyboard shortcuts',
@@ -6451,6 +6523,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': '全画面ループ動画を静止画の代わりに使います。見栄えは良くなりますが、フレームレートが大きく下がるため、内蔵GPUでは推奨しません。',
     'settings.backgroundVideoOn': '動画背景をオンにしました',
     'settings.backgroundVideoOff': '動画背景をオフにしました',
+    'install.title': 'ホーム画面に追加',
+    'install.action': 'インストール',
+    'install.done': 'ホーム画面に追加しました',
+    'install.iosHint': 'iPhone / iPad：下部の「共有」→「ホーム画面に追加」（Safari のみ）。',
+    'install.manualHint': 'このブラウザには直接インストールする入口がありません。Chrome / Edge で開き、メニューの「アプリをインストール」／「ホーム画面に追加」を選んでください。',
     'settings.backgroundOff': '動く背景をオフにしました',
     'settings.motionUpdated': 'モーション設定を更新しました',
     'help.title': 'キーボードショートカット',
@@ -6504,6 +6581,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': '전체 화면 반복 동영상으로 정적 이미지를 대체합니다. 보기엔 좋지만 프레임률이 크게 떨어져 내장 그래픽에서는 권장하지 않습니다.',
     'settings.backgroundVideoOn': '동영상 배경 켬',
     'settings.backgroundVideoOff': '동영상 배경 끔',
+    'install.title': '홈 화면에 추가',
+    'install.action': '설치',
+    'install.done': '홈 화면에 추가되었습니다',
+    'install.iosHint': 'iPhone / iPad: 하단의 공유 → 홈 화면에 추가 (Safari 전용).',
+    'install.manualHint': '이 브라우저는 직접 설치 메뉴를 제공하지 않습니다. Chrome / Edge로 열고 메뉴에서 「앱 설치」 또는 「홈 화면에 추가」를 선택하세요.',
     'settings.backgroundOff': '동적 배경 끔',
     'settings.motionUpdated': '모션 설정을 변경했습니다',
     'help.title': '키보드 단축키',
@@ -6557,6 +6639,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': 'Remplace l’image fixe par une vidéo en boucle plein écran. Plus riche, mais au prix d’une nette baisse de fluidité — déconseillé sur GPU intégré.',
     'settings.backgroundVideoOn': 'Vidéo en fond activée',
     'settings.backgroundVideoOff': 'Vidéo en fond désactivée',
+    'install.title': "Installer sur l'écran d'accueil",
+    'install.action': 'Installer',
+    'install.done': 'Ajouté à l’écran d’accueil',
+    'install.iosHint': 'iPhone / iPad : Partager → « Sur l’écran d’accueil » (Safari uniquement).',
+    'install.manualHint': 'Ce navigateur ne propose pas d’installation directe. Ouvrez la page dans Chrome ou Edge, puis choisissez « Installer l’application » ou « Ajouter à l’écran d’accueil ».',
     'settings.backgroundOff': 'Fond animé désactivé',
     'settings.motionUpdated': 'Préférence d’animation mise à jour',
     'help.title': 'Raccourcis clavier',
@@ -6610,6 +6697,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': 'Ersetzt das Standbild durch ein bildschirmfüllendes Loop-Video. Sieht reicher aus, kostet aber viel Bildrate – auf integrierten GPUs nicht empfohlen.',
     'settings.backgroundVideoOn': 'Video-Hintergrund an',
     'settings.backgroundVideoOff': 'Video-Hintergrund aus',
+    'install.title': 'Zum Startbildschirm hinzufügen',
+    'install.action': 'Installieren',
+    'install.done': 'Zum Startbildschirm hinzugefügt',
+    'install.iosHint': 'iPhone / iPad: Teilen → „Zum Startbildschirm“ (nur Safari).',
+    'install.manualHint': 'Dieser Browser bietet keinen direkten Installationseintrag. Öffnen Sie die Seite in Chrome oder Edge und wählen Sie „App installieren“ bzw. „Zum Startbildschirm hinzufügen“.',
     'settings.backgroundOff': 'Animierter Hintergrund aus',
     'settings.motionUpdated': 'Bewegungseinstellung aktualisiert',
     'help.title': 'Tastenkürzel',
@@ -6663,6 +6755,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': 'Sustituye la imagen fija por un vídeo en bucle a pantalla completa. Se ve mejor, pero cuesta mucha fluidez; no se recomienda con gráficos integrados.',
     'settings.backgroundVideoOn': 'Fondo de vídeo activado',
     'settings.backgroundVideoOff': 'Fondo de vídeo desactivado',
+    'install.title': 'Instalar en la pantalla de inicio',
+    'install.action': 'Instalar',
+    'install.done': 'Añadido a la pantalla de inicio',
+    'install.iosHint': 'iPhone / iPad: Compartir → «Añadir a pantalla de inicio» (solo Safari).',
+    'install.manualHint': 'Este navegador no ofrece instalación directa. Abre la página en Chrome o Edge y elige «Instalar aplicación» o «Añadir a pantalla de inicio».',
     'settings.backgroundOff': 'Fondo animado desactivado',
     'settings.motionUpdated': 'Preferencia de movimiento actualizada',
     'help.title': 'Atajos de teclado',
@@ -6716,6 +6813,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': 'Substitui a imagem fixa por um vídeo em ciclo em ecrã inteiro. Fica mais rico, mas custa muita fluidez — não recomendado em gráficos integrados.',
     'settings.backgroundVideoOn': 'Vídeo de fundo ativado',
     'settings.backgroundVideoOff': 'Vídeo de fundo desativado',
+    'install.title': 'Instalar na tela inicial',
+    'install.action': 'Instalar',
+    'install.done': 'Adicionado à tela inicial',
+    'install.iosHint': 'iPhone / iPad: Compartilhar → “Adicionar à Tela de Início” (somente Safari).',
+    'install.manualHint': 'Este navegador não oferece instalação direta. Abra a página no Chrome ou Edge e escolha “Instalar app” ou “Adicionar à tela inicial”.',
     'settings.backgroundOff': 'Fundo animado desativado',
     'settings.motionUpdated': 'Preferência de movimento atualizada',
     'help.title': 'Atalhos de teclado',
@@ -6769,6 +6871,11 @@ const FOLLOWUP_STRINGS = {
     'settings.backgroundVideoHint': 'Заменяет статичное изображение полноэкранным зацикленным видео. Выглядит богаче, но сильно снижает частоту кадров — на встроенной графике не рекомендуется.',
     'settings.backgroundVideoOn': 'Видео-фон включён',
     'settings.backgroundVideoOff': 'Видео-фон выключен',
+    'install.title': 'Установить на главный экран',
+    'install.action': 'Установить',
+    'install.done': 'Добавлено на главный экран',
+    'install.iosHint': 'iPhone / iPad: «Поделиться» → «На экран «Домой»» (только Safari).',
+    'install.manualHint': 'В этом браузере нет прямого пункта установки. Откройте страницу в Chrome или Edge и выберите «Установить приложение» или «Добавить на главный экран».',
     'settings.backgroundOff': 'Анимированный фон выключен',
     'settings.motionUpdated': 'Настройка анимации обновлена',
     'help.title': 'Горячие клавиши',

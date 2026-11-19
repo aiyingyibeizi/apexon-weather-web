@@ -3737,6 +3737,69 @@ function setupSettingsSheet() {
   });
   if (bgVideoSwitch) bgVideoSwitch.setAttribute('aria-checked', localStorage.getItem(BG_VIDEO_KEY) === '1' ? 'true' : 'false');
 
+  /* ── 安装到桌面（PWA） ───────────────────────────────────────────────
+     Android / 桌面 Chromium：beforeinstallprompt 可用时调用系统安装框；
+     iOS Safari 没有安装 API，只能在设置里引导「分享 → 添加到主屏幕」；
+     其余浏览器（内置浏览器 / 自定义标签）不暴露安装入口，直接给出换浏览器的说明；
+     已经是独立窗口运行（含 APK 壳）时整行隐藏，避免装了还提示安装。 */
+  (() => {
+    const row = $('#install-row');
+    const hint = $('#install-hint');
+    const btn = $('#install-app');
+    if (!row || !btn) return;
+
+    const standalone = window.matchMedia('(display-mode: standalone)').matches
+      || window.matchMedia('(display-mode: minimal-ui)').matches
+      || window.navigator.standalone === true;
+    if (standalone || isNativeApp()) return;
+
+    const ua = navigator.userAgent;
+    const isIOS = /iPad|iPhone|iPod/.test(ua)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    let deferred = null;
+
+    const showHint = (key) => {
+      hint.textContent = t(key);
+      hint.hidden = false;
+    };
+
+    row.hidden = false;
+    showHint(isIOS ? 'install.iosHint' : 'install.manualHint');
+    // 语言切换后提示文案要跟着变（行内标签由 data-i18n 自动刷新）
+    onLanguageChange(() => {
+      if (row.hidden) return;
+      if (deferred) {
+        hint.hidden = true;
+        return;
+      }
+      showHint(isIOS ? 'install.iosHint' : 'install.manualHint');
+    });
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferred = event;
+      hint.hidden = true;
+      btn.hidden = false;
+    });
+
+    window.addEventListener('appinstalled', () => {
+      row.hidden = true;
+      hint.hidden = true;
+      showToast(t('install.done'), 3000);
+    });
+
+    btn.addEventListener('click', async () => {
+      if (!deferred) return;
+      btn.disabled = true;
+      try {
+        deferred.prompt();
+        await deferred.userChoice;
+      } catch { /* 用户取消或浏览器不实现，静默 */ }
+      deferred = null;
+      btn.disabled = false;
+    });
+  })();
+
   clearCacheBtn?.addEventListener('click', async () => {
     await clearCache();
     showToast(t('settings.cacheCleared'));
@@ -3884,6 +3947,7 @@ function setupSyncGroup() {
  * 不再需要手写 HTML，也不会因为条目增加而撑高设置页。
  */
 const CHANGELOG_RELEASES = [
+  { version: '2.9.6', date: '2026-11-19', key: 'changelog.v296', kind: 'feature' },
   { version: '2.9.5', date: '2026-11-19', key: 'changelog.v295', kind: 'feature' },
   { version: '2.9.4', date: '2026-11-19', key: 'changelog.v294', kind: 'improve' },
   { version: '2.9.3', date: '2026-11-19', key: 'changelog.v293', kind: 'improve' },
