@@ -1,0 +1,86 @@
+{
+  "id": "com.apexon.weather",
+  "platform": "android",
+  "version": "2.3.1",
+  "versionCode": null,
+  "releaseDate": null,
+  "size": null,
+  "sha256": null,
+  "fileName": "apexon-weather-2.3.1.apk",
+  "downloadUrl": "https://apexon.qzz.io/apps/apexon-weather-2.3.1.apk",
+  "minAndroidSdk": 24,
+  "apkAvailable": false,
+  "notes": {
+    "zh-CN": [
+      "接入 Supabase 云端后端：接口密钥从 App 内移除，改由服务端 Edge Function 托管与转发",
+      "新增 GitHub 一键登录（OAuth）：登录后走云端代理，未登录自动降级直连，天气功能完全不受影响",
+      "新增每日 1000 次调用限额与实时用量统计，设置页新增「账号」区块，可查看登录状态与今日用量",
+      "密钥安全加固：密钥仅存于服务端 Vault，数据库写入权限仅授予服务端，错误信息不再回吐上游详情",
+      "所有接口请求补充语言参数，缓存按完整 URL 隔离，多语言切换不再串档"
+    ],
+    "zh-TW": [
+      "接入 Supabase 雲端後端：介面金鑰從 App 內移除，改由伺服器端 Edge Function 託管與轉發",
+      "新增 GitHub 一鍵登入（OAuth）：登入後走雲端代理，未登入自動降級直連，天氣功能完全不受影響",
+      "新增每日 1000 次呼叫限額與即時用量統計，設定頁新增「帳號」區塊，可查看登入狀態與今日用量",
+      "金鑰安全加固：金鑰僅存於伺服器端 Vault，資料庫寫入權限僅授予伺服器端，錯誤訊息不再回吐上游詳情",
+      "所有介面請求補充語言參數，快取按完整 URL 隔離，多語言切換不再串檔"
+    ],
+    "en": [
+      "Supabase cloud backend is live: the API key was removed from the app and is now held and proxied by a server-side Edge Function.",
+      "One-tap GitHub sign-in (OAuth): signed-in requests go through the cloud proxy, while guests fall back to direct access with the weather fully intact.",
+      "Added a 1,000 calls/day limit with live usage stats, plus a new Account section in Settings showing sign-in state and today’s usage.",
+      "Key hardening: the key lives only in the server-side Vault, database write access is restricted to the server, and upstream error details are no longer echoed to clients.",
+      "All API requests now carry a language parameter and the cache is keyed on the full URL, so switching languages no longer serves stale content."
+    ],
+    "ja": [
+      "Supabase クラウドバックエンドを導入：API キーをアプリから取り除き、サーバー側の Edge Function で保管・転送するようになりました。",
+      "GitHub ワンタップログイン（OAuth）を追加：ログイン時はクラウド経由、未ログイン時は直接接続へ自動フォールバックし、天気機能は制限されません。",
+      "1 日 1,000 回の呼び出し上限とリアルタイム使用量を追加し、設定に「アカウント」を新設（ログイン状態と本日の利用回数を表示）。",
+      "キーの安全性を強化：キーはサーバー側 Vault にのみ保管し、DB の書き込み権限はサーバーに限定、上流のエラー詳細はクライアントへ返さなくなりました。",
+      "全 API リクエストに言語パラメータを付与し、キャッシュを完全な URL で分離。言語切替時に古い内容が出なくなりました。"
+    ],
+    "ko": [
+      "Supabase 클라우드 백엔드 적용: API 키를 앱에서 제거하고 서버 측 Edge Function에서 보관·전달하도록 변경했습니다.",
+      "GitHub 원터치 로그인(OAuth) 추가: 로그인 시 클라우드 프록시, 비로그인 시 직접 연결로 자동 전환되며 날씨 기능은 그대로입니다.",
+      "하루 1,000회 호출 제한과 실시간 사용량을 추가하고, 설정에 \"계정\" 구역을 신설(로그인 상태와 오늘 사용량 표시).",
+      "키 보안 강화: 키는 서버 측 Vault에만 보관하고, DB 쓰기 권한은 서버로 제한하며, 상류 오류 상세는 클라이언트로 반환하지 않습니다.",
+      "모든 API 요청에 언어 파라미터를 추가하고 캐시를 전체 URL 기준으로 분리해, 언어 전환 시 이전 캐시가 섞이지 않습니다."
+    ],
+    "fr": [
+      "Backend cloud Supabase en service : la clé d’API a été retirée de l’application et est désormais détenue et relayée par une Edge Function côté serveur.",
+      "Connexion GitHub en un tap (OAuth) : connecté, les requêtes passent par le proxy cloud ; sinon, retour automatique en accès direct, la météo restant intacte.",
+      "Ajout d’une limite de 1 000 appels/jour avec statistiques en direct, et d’une section « Compte » dans les Réglages (état de connexion et usage du jour).",
+      "Durcissement des clés : la clé ne vit que dans le Vault côté serveur, l’écriture en base est réservée au serveur, et les détails d’erreur amont ne sont plus renvoyés au client.",
+      "Toutes les requêtes API portent un paramètre de langue et le cache est indexé sur l’URL complète : changer de langue ne sert plus de contenu périmé."
+    ],
+    "de": [
+      "Supabase-Cloud-Backend ist live: Der API-Schlüssel wurde aus der App entfernt und wird jetzt von einer serverseitigen Edge Function gehalten und weitergeleitet.",
+      "GitHub-Anmeldung mit einem Tipp (OAuth): Angemeldete laufen über den Cloud-Proxy, Gäste fallen automatisch auf Direktzugriff zurück — das Wetter bleibt vollständig.",
+      "Limit von 1.000 Aufrufen pro Tag mit Live-Statistik sowie neuer Abschnitt „Konto“ in den Einstellungen (Anmeldestatus und heutige Nutzung).",
+      "Schlüssel-Härtung: Der Schlüssel liegt nur im serverseitigen Vault, Schreibzugriff auf die Datenbank ist auf den Server beschränkt, Upstream-Fehlerdetails werden nicht mehr an den Client zurückgegeben.",
+      "Alle API-Aufrufe tragen nun einen Sprachparameter, und der Cache ist auf die vollständige URL geschlüsselt — Sprachwechsel liefert keinen veralteten Inhalt mehr."
+    ],
+    "es": [
+      "Backend en la nube con Supabase en producción: la clave de API se eliminó de la app y ahora la custodia y retransmite una Edge Function del servidor.",
+      "Inicio de sesión con GitHub en un toque (OAuth): con sesión las peticiones pasan por el proxy en la nube; sin sesión se vuelve al acceso directo sin mermar el clima.",
+      "Nuevo límite de 1.000 llamadas al día con estadísticas en vivo y una sección «Cuenta» en Ajustes (estado de sesión y uso de hoy).",
+      "Refuerzo de claves: la clave solo vive en el Vault del servidor, la escritura en la base de datos se limita al servidor y los detalles de error del upstream ya no se devuelven al cliente.",
+      "Todas las peticiones de API llevan ahora un parámetro de idioma y la caché se indexa por URL completa: cambiar de idioma ya no sirve contenido obsoleto."
+    ],
+    "pt": [
+      "Backend na nuvem com Supabase ativo: a chave da API foi retirada da app e passa a ser guardada e reencaminhada por uma Edge Function do servidor.",
+      "Início de sessão com GitHub num toque (OAuth): com sessão os pedidos passam pelo proxy na nuvem; sem sessão, regressa ao acesso direto sem afetar o clima.",
+      "Novo limite de 1.000 chamadas por dia com estatísticas em tempo real e uma secção «Conta» nos Ajustes (estado de sessão e uso de hoje).",
+      "Reforço da chave: fica apenas no Vault do servidor, a escrita na base de dados é restrita ao servidor e os detalhes de erro do upstream já não são devolvidos ao cliente.",
+      "Todos os pedidos de API passam a incluir um parâmetro de idioma e a cache é indexada pelo URL completo: mudar de idioma já não serve conteúdo desatualizado."
+    ],
+    "ru": [
+      "Облачный бэкенд на Supabase запущен: ключ API удалён из приложения и теперь хранится и проксируется серверной Edge Function.",
+      "Вход через GitHub в одно касание (OAuth): после входа запросы идут через облачный прокси, без входа — автоматический возврат к прямому доступу, погода работает полностью.",
+      "Добавлен лимит 1 000 запросов в день с онлайн-статистикой и раздел «Аккаунт» в настройках (состояние входа и расход за сегодня).",
+      "Усиление защиты ключа: ключ хранится только в серверном Vault, запись в базу разрешена только серверу, детали ошибок вышестоящего сервиса больше не возвращаются клиенту.",
+      "Все запросы к API теперь содержат параметр языка, а кэш ключается по полному URL — переключение языка больше не отдаёт устаревшие данные."
+    ]
+  },
+  "archiveNote": "该版本 APK 未留存：tools/make-app-json.py 每次发布都会清空 dist/release 后重建，历史安装包已在之前的发布流程中被覆盖。如需补齐，把当时的安装包放回本目录并重命名为 apexon-weather-{version}.apk 即可。"
+}
