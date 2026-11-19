@@ -5663,6 +5663,59 @@ const V291_CHANGELOG = {
   ],
 };
 
+/** v2.9.2 —— 清掉控制台报错、去掉白天空转的动画层、加帧率诊断模式 */
+const V292_CHANGELOG = {
+  'zh-CN': [
+    '修复控制台反复刷出的 Service Worker 报错：浏览器扩展等非本站请求不再被缓存拦截，网络失败时也不会再抛 "Failed to convert value to Response"。',
+    '修复切到后台再切回时的 264ms 长任务卡顿，视频同步改到下一帧执行。',
+    '白天彻底移除夜空四层全屏动画，静态页面不再空转合成；新增 ?fx=off 诊断模式，可一键关掉全部动效对比帧率。',
+  ],
+  'zh-TW': [
+    '修復主控台反覆出現的 Service Worker 錯誤：瀏覽器擴充功能等非本站請求不再被快取攔截，網路失敗時也不會再拋出「Failed to convert value to Response」。',
+    '修復切到背景再切回時 264ms 的長工作卡頓，影片同步改到下一幀執行。',
+    '白天徹底移除夜空四層全螢幕動畫，靜態頁面不再空轉合成；新增 ?fx=off 診斷模式，可一鍵關閉全部動效比較幀率。',
+  ],
+  en: [
+    'Fixed the Service Worker errors that kept flooding the console: non-site requests such as browser-extension files are no longer intercepted by the cache, and a failed network fetch no longer throws "Failed to convert value to Response".',
+    'Fixed the 264 ms long task when switching tabs and back — video syncing now runs on the next frame.',
+    'Night-sky animations are fully removed from rendering during the day, so a static page no longer burns compositor time; added a ?fx=off diagnostic mode that disables every effect for frame-rate comparison.',
+  ],
+  ja: [
+    'コンソールに出続けていた Service Worker のエラーを修正。拡張機能など外部のリクエストをキャッシュで横取りせず、通信失敗時も「Failed to convert value to Response」を投げなくなりました。',
+    'タブを切り替えて戻ったときの 264ms の長いタスクを修正。動画の同期を次のフレームで行うようにしました。',
+    '昼間は夜空の全画面アニメーションを完全に描画対象から外し、静止画面で合成処理を空回りさせません。すべての演出を切って比較できる ?fx=off 診断モードも追加しました。',
+  ],
+  ko: [
+    '콘솔에 반복 출력되던 Service Worker 오류를 수정했습니다. 확장 프로그램 등 외부 요청을 캐시에서 가로채지 않으며, 네트워크 실패 시 "Failed to convert value to Response" 예외도 발생하지 않습니다.',
+    '탭을 전환했다 돌아올 때 발생하던 264ms 긴 작업을 수정했습니다. 동영상 동기화를 다음 프레임에서 처리합니다.',
+    '낮에는 밤하늘 전체 화면 애니메이션을 렌더링에서 완전히 제외해 정적 화면이 합성 시간을 낭비하지 않습니다. 모든 효과를 끄고 비교할 수 있는 ?fx=off 진단 모드를 추가했습니다.',
+  ],
+  fr: [
+    'Correction des erreurs Service Worker qui inondaient la console : les requêtes hors site (fichiers d’extension, etc.) ne sont plus interceptées par le cache, et un échec réseau ne lève plus « Failed to convert value to Response ».',
+    'Correction de la tâche longue de 264 ms au retour sur l’onglet : la synchronisation vidéo s’exécute désormais à l’image suivante.',
+    'Les animations du ciel nocturne sont totalement retirées du rendu le jour : une page statique ne consomme plus de composition inutile. Ajout du mode diagnostic ?fx=off qui coupe tous les effets pour comparer la fluidité.',
+  ],
+  de: [
+    'Service-Worker-Fehler, die die Konsole fluteten, behoben: Anfragen außerhalb der Seite (z. B. Erweiterungsdateien) werden nicht mehr vom Cache abgefangen, und ein Netzwerkfehler wirft nicht mehr „Failed to convert value to Response“.',
+    'Den 264-ms-Long-Task beim Zurückwechseln zum Tab behoben – die Videosynchronisierung läuft jetzt im nächsten Frame.',
+    'Die Nachthimmel-Animationen werden tagsüber vollständig aus dem Rendering entfernt; eine statische Seite verbraucht keine Compositing-Zeit mehr. Neuer Diagnosemodus ?fx=off, der alle Effekte abschaltet.',
+  ],
+  es: [
+    'Corregidos los errores de Service Worker que llenaban la consola: las peticiones ajenas al sitio (archivos de extensiones, etc.) ya no son interceptadas por la caché, y un fallo de red ya no lanza «Failed to convert value to Response».',
+    'Corregida la tarea larga de 264 ms al volver a la pestaña: la sincronización del vídeo ahora se ejecuta en el siguiente fotograma.',
+    'Las animaciones del cielo nocturno se retiran por completo del renderizado durante el día, así una página estática no consume composición. Nuevo modo de diagnóstico ?fx=off que desactiva todos los efectos.',
+  ],
+  pt: [
+    'Corrigidos os erros de Service Worker que inundavam a consola: os pedidos fora do site (ficheiros de extensões, etc.) já não são intercetados pela cache e uma falha de rede já não lança «Failed to convert value to Response».',
+    'Corrigida a tarefa longa de 264 ms ao voltar ao separador: a sincronização do vídeo passa a correr no fotograma seguinte.',
+    'As animações do céu noturno são totalmente removidas da renderização durante o dia, pelo que uma página estática não gasta composição. Novo modo de diagnóstico ?fx=off que desliga todos os efeitos.',
+  ],
+  ru: [
+    'Исправлены ошибки Service Worker, засорявшие консоль: запросы вне сайта (файлы расширений и т. п.) больше не перехватываются кэшем, а сбой сети не вызывает «Failed to convert value to Response».',
+    'Исправлена 264-мс длинная задача при возврате на вкладку — синхронизация видео теперь выполняется на следующем кадре.',
+    'Анимации ночного неба полностью убраны из отрисовки днём, поэтому статичная страница не тратит время на композитинг. Добавлен режим диагностики ?fx=off, отключающий все эффекты.',
+  ],
+};
 
 const CHANGELOG_UI_STRINGS = {
   'zh-CN': { 'settings.changelogFix': '问题修复', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '体验优化' },
@@ -5684,6 +5737,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v286'] = V286_CHANGELOG[lang] || V286_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v290'] = V290_CHANGELOG[lang] || V290_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v291'] = V291_CHANGELOG[lang] || V291_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v292'] = V292_CHANGELOG[lang] || V292_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 

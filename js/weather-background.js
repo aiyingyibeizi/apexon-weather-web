@@ -299,7 +299,9 @@ function syncVideoPlayback() {
   const slowNet = !!(conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')));
   // 设置里的「动态背景」总开关：关掉后视频层已被 CSS 移出合成，
   // 这里同步停播并释放解码器，避免后台还在白白解码。
-  const bgOff = document.documentElement.dataset.bg === 'off';
+  // ?fx=off 诊断模式同理：页面只保留静态内容。
+  const bgOff = document.documentElement.dataset.bg === 'off'
+    || document.documentElement.dataset.fx === 'off';
   // 手指/滚轮正在滚动：先暂停解码。
   // 场景层是 fixed 的，暂停后会保留最后一帧，视觉上只是这一小段不再动；
   // 但滚动期间 GPU 不必同时做「全屏视频解码 + 页面合成」，这是 120Hz 上最实在的一笔。
@@ -332,7 +334,23 @@ function syncVideoPlayback() {
   }
 }
 
-document.addEventListener('visibilitychange', syncVideoPlayback);
+/**
+ * 把同步播放状态推迟到下一帧。
+ * 直接挂在 visibilitychange 上时，暂停 + 释放解码器会同步阻塞事件处理，
+ * DevTools 实测该 handler 最长 264ms，整页会顿一下。推迟到 rAF 后
+ * 事件本身立刻返回，视觉上反而更顺。
+ */
+let syncQueued = false;
+function scheduleSync() {
+  if (syncQueued) return;
+  syncQueued = true;
+  requestAnimationFrame(() => {
+    syncQueued = false;
+    syncVideoPlayback();
+  });
+}
+
+document.addEventListener('visibilitychange', scheduleSync);
 
 /**
  * 跟踪首屏滚动：只在 .main 真正滚动时测量，且每帧最多一次。
@@ -383,18 +401,15 @@ function onMainScroll(event) {
 }
 document.addEventListener('scroll', onMainScroll, { passive: true, capture: true });
 
-// 切到后台 / 回到前台时同步播放状态：
-// 后台继续解码全屏视频只是白白耗电，回到前台则要立刻恢复，不能等下一次滚动。
-document.addEventListener('visibilitychange', syncVideoPlayback);
 // 省电模式、插拔电源等会造成 reduce motion 变化，系统级媒体查询也要跟着同步
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (motionQuery.addEventListener) motionQuery.addEventListener('change', syncVideoPlayback);
+if (motionQuery.addEventListener) motionQuery.addEventListener('change', scheduleSync);
 // 设置里切换「动态背景」时立即生效，不必等下一次滚动或切页
-window.addEventListener('apexon:bgchange', syncVideoPlayback);
+window.addEventListener('apexon:bgchange', scheduleSync);
 
 new MutationObserver(syncVideoPlayback).observe(document.documentElement, {
   attributes: true,
-  attributeFilter: ['data-motion', 'data-theme', 'data-perf', 'data-bg'],
+  attributeFilter: ['data-motion', 'data-theme', 'data-perf', 'data-bg', 'data-fx'],
 });
 
 Object.values(WEATHER_IMAGES).forEach(preloadImage);

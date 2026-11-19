@@ -10,7 +10,7 @@
  *   in the UI (which posts SKIP_WAITING). Then clients.claim() reloads the page.
  */
 
-const APP_VERSION = '2.9.1';
+const APP_VERSION = '2.9.2';
 const CACHE_NAME = `apexon-weather-${APP_VERSION}`;
 /**
  * 安装期只预缓存"应用外壳"（HTML/CSS/JS/字体/图标，约 1MB）。
@@ -118,6 +118,11 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
 
   if (request.method !== 'GET') return;
+  // 非 http(s) 请求（chrome-extension://、data: 等）不属于本站：
+  // 之前扩展的 icon.png 也会命中下面的 .png 静态分支，cache.put 对
+  // chrome-extension:// 必然抛错，于是控制台刷出
+  // "The FetchEvent ... resulted in a network error response"。
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
 
   // 视频拖动 / 断点续传：Range 请求交给浏览器直连。
   // 把分片响应整包塞进缓存会破坏 Range 语义，播放器seek时会拿到坏数据。
@@ -182,7 +187,8 @@ async function staleWhileRevalidate(request) {
   const networkPromise = fetch(request)
     .then(async (response) => {
       if (response.ok) {
-        await cache.put(request, response.clone());
+        // 跨域/不可缓存协议下 put 会抛错，吞掉即可，不能让它把整个 respondWith 拒绝掉
+        await cache.put(request, response.clone()).catch(() => {});
       }
       return response;
     })
@@ -191,5 +197,7 @@ async function staleWhileRevalidate(request) {
   // Race with timeout: return cached quickly, update in background
   const timeout = new Promise((resolve) => setTimeout(() => resolve(cached), 600));
 
-  return Promise.race([networkPromise, timeout]).then((res) => res || networkPromise);
+  return Promise.race([networkPromise, timeout]).then(
+    (res) => res || networkPromise || new Response('', { status: 504 })
+  );
 }

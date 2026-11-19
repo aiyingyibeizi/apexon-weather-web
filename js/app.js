@@ -353,6 +353,12 @@ export async function initApp() {
       loadWeather(state.currentCity, false, true);
     }
   });
+  // 诊断模式：?fx=off 一次性停掉所有动画/过渡/毛玻璃/视频。
+  // 用来区分「页面绘制成本」和「显示器/浏览器合成上限」，只由 URL 触发，
+  // 不写 localStorage，刷新即恢复。
+  if (new URLSearchParams(location.search).get('fx') === 'off') {
+    document.documentElement.dataset.fx = 'off';
+  }
   applyTheme();
   applyMotionPreference();
   applyBackgroundPreference();
@@ -3824,6 +3830,7 @@ function setupSyncGroup() {
  * 不再需要手写 HTML，也不会因为条目增加而撑高设置页。
  */
 const CHANGELOG_RELEASES = [
+  { version: '2.9.2', date: '2026-11-19', key: 'changelog.v292', kind: 'fix' },
   { version: '2.9.1', date: '2026-11-19', key: 'changelog.v291', kind: 'improve' },
   { version: '2.9.0', date: '2026-11-18', key: 'changelog.v290', kind: 'feature' },
   { version: '2.8.6', date: '2026-11-18', key: 'changelog.v286', kind: 'improve' },

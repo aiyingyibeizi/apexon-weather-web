@@ -6418,9 +6418,14 @@ html[data-perf='low'] #settings-sheet {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.9s var(--ease-out-expo);
+  /* 白天整层直接不参与合成。
+     星点/月晕/流星都是全屏无限动画，即使容器 opacity:0，
+     动画仍在跑、图层仍然常驻显存 —— 白天等于白烧 4 层的合成与显存。 */
+  display: none;
 }
 
 html[data-scene="night"] .weather-scene__night {
+  display: block;
   opacity: 1;
 }
 
@@ -6678,4 +6683,32 @@ html[data-theme="dark"] .weather-scene__gradient {
 html[data-bg="off"] .weather-scene__video,
 html[data-bg="off"] .weather-scene__night {
   display: none !important;
+}
+
+/* ============================
+   v2.9.2 · 诊断模式 ?fx=off
+   ============================
+   一次性关掉所有动画、过渡、毛玻璃与视频，只留静态页面。
+   用途：打开 https://weather.apexon.qzz.io/?fx=off 后看 DevTools 帧率，
+   如果此时仍是 ~58fps，说明瓶颈在显示器刷新率/浏览器合成上限，
+   而不是页面绘制；如果跳到 110+，说明就是这些动态效果吃掉了预算。 */
+html[data-fx="off"] *,
+html[data-fx="off"] *::before,
+html[data-fx="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-fx="off"] .weather-scene__video,
+html[data-fx="off"] .weather-scene__night {
+  display: none !important;
+}
+
+html[data-fx="off"] .sheet,
+html[data-fx="off"] .update-dialog,
+html[data-fx="off"] .exit-overlay,
+html[data-fx="off"] .shortcut-help,
+html[data-fx="off"] .wg {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
