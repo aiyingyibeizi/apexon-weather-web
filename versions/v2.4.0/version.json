@@ -1,0 +1,86 @@
+{
+  "id": "com.apexon.weather",
+  "platform": "android",
+  "version": "2.4.0",
+  "versionCode": null,
+  "releaseDate": null,
+  "size": null,
+  "sha256": null,
+  "fileName": "apexon-weather-2.4.0.apk",
+  "downloadUrl": "https://apexon.qzz.io/apps/apexon-weather-2.4.0.apk",
+  "minAndroidSdk": 24,
+  "apkAvailable": false,
+  "notes": {
+    "zh-CN": [
+      "密钥彻底移出 App：安装包内不再保存任何和风天气密钥，所有请求统一经服务端代理转发",
+      "不强制登录：未登录也能正常看天气，游客每日 300 次额度，按设备计数，不与陌生人互相挤占",
+      "登录后额度提升至每日 1000 次，设置页「账号与用量」实时显示今日已用与剩余额度",
+      "后台省电与额度保护：App 切到后台暂停自动刷新，回到前台再补一次；额度即将用尽时自动限流并提前提示",
+      "修复设置页更新内容列表在部分语言下显示为空的问题"
+    ],
+    "zh-TW": [
+      "密鑰徹底移出 App：安裝包內不再保存任何和風天氣密鑰，所有請求統一經服務端代理轉發",
+      "不強制登入：未登入也能正常看天氣，遊客每日 300 次額度，按裝置計數，不與陌生人互相擠占",
+      "登入後額度提升至每日 1000 次，設定頁「帳號與用量」即時顯示今日已用與剩餘額度",
+      "後台省電與額度保護：App 切到後台暫停自動重新整理，回到前台再補一次；額度即將用盡時自動限流並提前提示",
+      "修正設定頁更新內容清單在部分語言下顯示為空的問題"
+    ],
+    "en": [
+      "The API key is now fully out of the app: the package ships no QWeather key at all, and every request is relayed through the server-side proxy.",
+      "Sign-in is optional: guests keep full weather access with 300 calls a day, counted per device so nobody competes for your quota.",
+      "Signing in raises the limit to 1,000 calls a day, and Settings shows calls used and calls remaining in real time.",
+      "Background and quota guard: auto-refresh pauses while the app is in the background and catches up on return, and the app throttles itself as the quota runs low.",
+      "Fixed the release-notes list in Settings rendering empty for some languages."
+    ],
+    "ja": [
+      "APIキーをアプリから完全に排除：パッケージには和風天気のキーを一切含めず、すべてのリクエストはサーバー側プロキシ経由になります。",
+      "ログインは任意：未ログインでも天気はそのまま使え、ゲストは 1 日 300 回。カウントは端末単位なので他人と枠を奪い合いません。",
+      "ログインすると 1 日 1,000 回に拡大。設定の「アカウントと使用量」で本日の使用数と残りをリアルタイム表示します。",
+      "バックグラウンドと上限の保護：アプリが背面にある間は自動更新を止め、戻ったときに追いつき、残りが少なくなると自動で抑制します。",
+      "一部の言語で設定の更新履歴リストが空になる問題を修正しました。"
+    ],
+    "ko": [
+      "API 키를 앱에서 완전히 제거: 패키지에 기상청 키를 전혀 포함하지 않으며 모든 요청은 서버 프록시를 거칩니다.",
+      "로그인은 선택: 로그인하지 않아도 날씨를 그대로 쓸 수 있고 게스트는 하루 300회, 기기 단위로 집계되어 남의 할당량을 잡아먹지 않습니다.",
+      "로그인하면 하루 1,000회로 늘어나며, 설정의 \"계정 및 사용량\"에서 오늘 사용량과 남은 횟수를 실시간으로 보여줍니다.",
+      "백그라운드 및 한도 보호: 앱이 뒤로 가면 자동 새로고침을 멈추고 돌아올 때 따라잡으며, 남은 횟수가 적으면 스스로 제한합니다.",
+      "일부 언어에서 설정의 업데이트 내역 목록이 비어 보이던 문제를 수정했습니다."
+    ],
+    "fr": [
+      "La clé d’API quitte totalement l’application : le paquet n’embarque plus aucune clé QWeather et toutes les requêtes passent par le proxy côté serveur.",
+      "Connexion facultative : les invités gardent l’accès complet avec 300 appels par jour, comptés par appareil pour ne pas se partager le quota.",
+      "Se connecter porte la limite à 1 000 appels par jour, et les Réglages affichent en temps réel les appels utilisés et restants.",
+      "Économie et garde-fou : le rafraîchissement auto s’arrête en arrière-plan et rattrape au retour, et l’app se limite quand le quota baisse.",
+      "Correction de la liste des nouveautés qui restait vide dans certaines langues."
+    ],
+    "de": [
+      "Der API-Schlüssel verlässt die App vollständig: Im Paket liegt kein QWeather-Schlüssel mehr, alle Anfragen laufen über den Server-Proxy.",
+      "Anmeldung ist optional: Gäste behalten vollen Zugriff mit 300 Aufrufen pro Tag — pro Gerät gezählt, damit niemand fremdes Kontingent verbraucht.",
+      "Nach der Anmeldung steigt das Limit auf 1.000 Aufrufe pro Tag; die Einstellungen zeigen verbrauchte und verbleibende Aufrufe live.",
+      "Hintergrund- und Kontingentschutz: Im Hintergrund pausiert das Auto-Refresh und holt beim Zurückkehren auf; bei knappem Kontingent drosselt die App sich selbst.",
+      "Behoben: Die Liste der Versionshinweise in den Einstellungen blieb in manchen Sprachen leer."
+    ],
+    "es": [
+      "La clave de API sale por completo de la app: el paquete ya no incluye ninguna clave de QWeather y todo pasa por el proxy del servidor.",
+      "Iniciar sesión es opcional: los invitados mantienen el acceso completo con 300 llamadas al día, contadas por dispositivo para no compartir cupo.",
+      "Al iniciar sesión el límite sube a 1.000 llamadas diarias, y Ajustes muestra en tiempo real las llamadas usadas y las restantes.",
+      "Ahorro y protección de cupo: la actualización automática se detiene en segundo plano y se recupera al volver, y la app se autolimita cuando queda poco.",
+      "Corregida la lista de novedades en Ajustes, que aparecía vacía en algunos idiomas."
+    ],
+    "pt": [
+      "A chave de API sai por completo da app: o pacote já não inclui qualquer chave do QWeather e todos os pedidos passam pelo proxy do servidor.",
+      "Iniciar sessão é opcional: os convidados mantêm acesso completo com 300 chamadas por dia, contadas por dispositivo para não partilhar quota.",
+      "Ao iniciar sessão o limite sobe para 1.000 chamadas diárias, e os Ajustes mostram em tempo real as chamadas usadas e restantes.",
+      "Poupança e proteção de quota: a atualização automática pára em segundo plano e recupera ao voltar, e a app limita-se quando a quota está baixa.",
+      "Corrigida a lista de novidades nos Ajustes, que aparecia vazia em alguns idiomas."
+    ],
+    "ru": [
+      "Ключ API полностью удалён из приложения: в пакете больше нет ключа QWeather, а все запросы идут через серверный прокси.",
+      "Вход не обязателен: гости сохраняют полный доступ с 300 запросами в день — счёт по устройству, чтобы не отнимать лимит у других.",
+      "После входа лимит поднимается до 1 000 запросов в день, а настройки показывают использованные и оставшиеся запросы в реальном времени.",
+      "Экономия и защита лимита: автообновление останавливается в фоне и догоняет при возврате, а при малом остатке приложение само ограничивает запросы.",
+      "Исправлено: список изменений в настройках оставался пустым для некоторых языков."
+    ]
+  },
+  "archiveNote": "该版本 APK 未留存：tools/make-app-json.py 每次发布都会清空 dist/release 后重建，历史安装包已在之前的发布流程中被覆盖。如需补齐，把当时的安装包放回本目录并重命名为 apexon-weather-{version}.apk 即可。"
+}
