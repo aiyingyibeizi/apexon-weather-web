@@ -160,19 +160,35 @@ function aqiLevelIndex(value) {
  * 只有"上次已有值且本次不同"时才播放动画，
  * 这样首次渲染与静默刷新都不会整屏乱闪，仅在数据真正变化时给出反馈。
  */
+/* 刷新动效的批量触发队列。
+   旧实现每遇到一个变化的数字就 void el.offsetWidth 一次，
+   一次刷新 N 个字段 = N 次同步布局；换来的只是「重置动画 → 重新播放」。
+   现在先攒进队列，下一帧只让全页排一次版，再统一加类，效果一致、布局只做一次。 */
+const flashQueue = [];
+let flashScheduled = false;
+
+function flushFlashes() {
+  flashScheduled = false;
+  const els = flashQueue.splice(0);
+  if (!els.length) return;
+  void document.body.offsetWidth; // 全页只强制排这一次
+  els.forEach((el) => el.classList.add('is-updated'));
+  setTimeout(() => els.forEach((el) => el.classList.remove('is-updated')), 760);
+}
+
 function setAnimText(el, value) {
   if (!el) return;
   const next = String(value ?? '');
-  if (el.dataset.anim !== next) {
-    const hadValue = el.dataset.anim !== undefined;
-    el.dataset.anim = next;
-    el.textContent = next;
-    if (hadValue) {
-      el.classList.remove('is-updated');
-      void el.offsetWidth; // 强制回流以重启动画
-      el.classList.add('is-updated');
-      setTimeout(() => el.classList.remove('is-updated'), 760);
-    }
+  if (el.dataset.anim === next) return;
+  const hadValue = el.dataset.anim !== undefined;
+  el.dataset.anim = next;
+  el.textContent = next;
+  if (!hadValue) return;
+  el.classList.remove('is-updated');
+  flashQueue.push(el);
+  if (!flashScheduled) {
+    flashScheduled = true;
+    requestAnimationFrame(flushFlashes);
   }
 }
 
@@ -197,12 +213,12 @@ function countUp(el, from, to, duration = 620) {
 /** 卡片"刷新掠过"效果：更新完成时一道极淡的高光扫过，提示内容已刷新 */
 function playCardSweep() {
   if (!state.weather) return;
-  document.querySelectorAll('.card').forEach((card) => {
-    card.classList.remove('is-refreshed');
-    void card.offsetWidth;
-    card.classList.add('is-refreshed');
-    setTimeout(() => card.classList.remove('is-refreshed'), 900);
-  });
+  const cards = Array.from(document.querySelectorAll('.card'));
+  if (!cards.length) return;
+  cards.forEach((card) => card.classList.remove('is-refreshed'));
+  void document.body.offsetWidth; // 原来是每张卡各排一次版
+  cards.forEach((card) => card.classList.add('is-refreshed'));
+  setTimeout(() => cards.forEach((card) => card.classList.remove('is-refreshed')), 900);
 }
 
 /* ---- A1：天气体感（沉浸开场，每次会话只播一次） ---- */
@@ -3845,6 +3861,7 @@ function setupSyncGroup() {
  * 不再需要手写 HTML，也不会因为条目增加而撑高设置页。
  */
 const CHANGELOG_RELEASES = [
+  { version: '2.9.4', date: '2026-11-19', key: 'changelog.v294', kind: 'improve' },
   { version: '2.9.3', date: '2026-11-19', key: 'changelog.v293', kind: 'improve' },
   { version: '2.9.2', date: '2026-11-19', key: 'changelog.v292', kind: 'fix' },
   { version: '2.9.1', date: '2026-11-19', key: 'changelog.v291', kind: 'improve' },

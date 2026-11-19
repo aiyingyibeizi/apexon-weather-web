@@ -5771,6 +5771,60 @@ const V293_CHANGELOG = {
   ],
 };
 
+/** v2.9.4 —— 骨架屏重绘降频、刷新重排合并、壳层清理 */
+const V294_CHANGELOG = {
+  'zh-CN': [
+    '骨架屏扫光从「跟随刷新率重绘」改为分步推进（每秒 30 次），首屏加载期的渐变重绘次数下降约 80%。',
+    '数据刷新时把 N 次强制重排合并成 1 次，刷新瞬间不再卡一下。',
+    'Android 去掉 WebView 外层多余的硬件图层；桌面端窗口自动开到刷新率最高的那块屏。',
+  ],
+  'zh-TW': [
+    '骨架屏掃光從「跟隨刷新率重繪」改為分步推進（每秒 30 次），首屏載入期的漸層重繪次數下降約 80%。',
+    '資料刷新時把 N 次強制重排合併成 1 次，刷新瞬間不再卡一下。',
+    'Android 移除 WebView 外層多餘的硬體圖層；桌面端視窗自動開到刷新率最高的那塊螢幕。',
+  ],
+  en: [
+    'The skeleton shimmer no longer repaints with every display frame — it advances in 30 discrete steps per second, cutting gradient repaints during load by roughly 80%.',
+    'Refreshing now batches N forced reflows into one, so the update no longer stutters.',
+    'Removed a redundant hardware layer around the Android WebView, and the desktop shell now opens on the highest-refresh-rate monitor.',
+  ],
+  ja: [
+    'スケルトンのシマーを「リフレッシュレートごとの再描画」から 1 秒 30 回の段階送りに変更し、読み込み中のグラデーション再描画を約 80% 削減しました。',
+    'データ更新時の強制レイアウトを N 回から 1 回にまとめ、更新の瞬間の引っかかりを解消しました。',
+    'Android で WebView の外側にあった余分なハードウェアレイヤーを削除し、デスクトップ版は最もリフレッシュレートの高いモニターにウィンドウを開くようにしました。',
+  ],
+  ko: [
+    '스켈레톤 반짝임을 「주사율마다 다시 그리기」에서 초당 30단계로 바꿔, 로딩 중 그라데이션 다시 그리기를 약 80% 줄였습니다.',
+    '데이터 갱신 시 N번의 강제 레이아웃을 1번으로 합쳐, 갱신 순간의 끊김을 없앴습니다.',
+    'Android에서 WebView 바깥의 불필요한 하드웨어 레이어를 제거하고, 데스크톱 앱은 주사율이 가장 높은 모니터에 창을 엽니다.',
+  ],
+  fr: [
+    'Le scintillement des squelettes n’est plus redessiné à chaque image : il avance par paliers de 30 par seconde, ce qui réduit d’environ 80 % les repeints de dégradé au chargement.',
+    'Le rafraîchissement regroupe désormais N reflows forcés en un seul : plus d’à-coup au moment de la mise à jour.',
+    'Suppression d’une couche matérielle redondante autour du WebView Android ; la version bureau ouvre sa fenêtre sur l’écran au taux de rafraîchissement le plus élevé.',
+  ],
+  de: [
+    'Der Skeleton-Schimmer wird nicht mehr pro Anzeigeframe neu gezeichnet, sondern in 30 Schritten pro Sekunde — das reduziert die Gradient-Neuzeichnung beim Laden um rund 80 %.',
+    'Beim Aktualisieren werden N erzwungene Reflows zu einem zusammengefasst – kein Ruckler mehr im Update-Moment.',
+    'Überflüssige Hardware-Ebene um das Android-WebView entfernt; die Desktop-App öffnet ihr Fenster auf dem Monitor mit der höchsten Bildwiederholrate.',
+  ],
+  es: [
+    'El brillo del esqueleto ya no se repinta en cada fotograma: avanza en 30 pasos por segundo, lo que reduce un 80 % los repintados del degradado durante la carga.',
+    'Al actualizar, N reflows forzados se agrupan en uno solo: se acabó el tirón del instante de actualización.',
+    'Se elimina una capa de hardware redundante alrededor del WebView de Android; la versión de escritorio abre su ventana en el monitor con mayor tasa de refresco.',
+  ],
+  pt: [
+    'O brilho do esqueleto deixou de ser redesenhado a cada frame: avança em 30 passos por segundo, reduzindo cerca de 80 % os redesenhos do gradiente durante o carregamento.',
+    'Ao atualizar, N reflows forçados passam a ser agrupados num só: acabou o engasgo no momento da atualização.',
+    'Removida uma camada de hardware redundante à volta do WebView do Android; a versão de desktop abre a janela no monitor com maior taxa de atualização.',
+  ],
+  ru: [
+    'Мерцание скелетона больше не перерисовывается каждый кадр: оно идёт шагами по 30 в секунду — перерисовок градиента при загрузке стало примерно на 80 % меньше.',
+    'При обновлении N принудительных пересчётов layout объединяются в один — рывок в момент обновления исчез.',
+    'Убрана лишняя аппаратная прослойка вокруг Android WebView; десктопная версия открывает окно на мониторе с максимальной частотой обновления.',
+  ],
+};
+
 const CHANGELOG_UI_STRINGS = {
   'zh-CN': { 'settings.changelogFix': '问题修复', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '体验优化' },
   'zh-TW': { 'settings.changelogFix': '問題修復', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '體驗優化' },
@@ -5793,6 +5847,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v291'] = V291_CHANGELOG[lang] || V291_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v292'] = V292_CHANGELOG[lang] || V292_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v293'] = V293_CHANGELOG[lang] || V293_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v294'] = V294_CHANGELOG[lang] || V294_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 

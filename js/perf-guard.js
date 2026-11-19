@@ -14,7 +14,7 @@
  * 判定结果缓存 7 天，避免每次冷启动都降级；用户手动切换动效时立即重测。
  */
 
-const PERF_KEY = 'apexon_perf_tier_v2';
+const PERF_KEY = 'apexon_perf_tier_v3';
 const SAMPLE_MS = 900;
 const MID_FRAME_MS = 22;   // < 45fps  → mid
 const LOW_FRAME_MS = 33;   // < 30fps  → low
