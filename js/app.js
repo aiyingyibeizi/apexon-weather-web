@@ -568,17 +568,23 @@ function applyMotionPreference() {
 }
 
 /**
- * 动态背景：默认开启。
- * 关闭后 <html data-bg="off">，CSS 把视频与夜空动画层移出合成，
- * 同时通知背景模块暂停解码 —— 低配机/高分屏下这是最直接的一笔帧率。
+ * 动态背景：默认开启，但默认载体是「静态图 + Ken Burns」。
+ * 关闭后 <html data-bg="off">，CSS 连 Ken Burns 一起停掉，只留静态画面。
+ * v2.9.3 起视频降级为可选项（VIDEO_KEY）：全屏循环视频每一帧都要
+ * 全宽解码帧拷贝 + 缩放 + 混合，核显上单项就顶穿 120Hz 的 8.33ms 预算。
  */
 const BG_KEY = 'apexon_dynamic_bg';
+const BG_VIDEO_KEY = 'apexon_bg_video';
 
 function applyBackgroundPreference() {
   const on = localStorage.getItem(BG_KEY) !== '0';
+  const videoOn = localStorage.getItem(BG_VIDEO_KEY) === '1';
   document.documentElement.dataset.bg = on ? 'on' : 'off';
+  document.documentElement.dataset.bgvideo = videoOn ? 'on' : 'off';
   const sw = document.getElementById('bg-switch');
   if (sw) sw.setAttribute('aria-checked', on ? 'true' : 'false');
+  const vsw = document.getElementById('bg-video-switch');
+  if (vsw) vsw.setAttribute('aria-checked', videoOn ? 'true' : 'false');
   window.dispatchEvent(new Event('apexon:bgchange'));
 }
 
@@ -3683,6 +3689,15 @@ function setupSettingsSheet() {
   });
   if (bgSwitch) bgSwitch.setAttribute('aria-checked', localStorage.getItem(BG_KEY) !== '0' ? 'true' : 'false');
 
+  const bgVideoSwitch = $('#bg-video-switch');
+  bgVideoSwitch?.addEventListener('click', () => {
+    const next = bgVideoSwitch.getAttribute('aria-checked') !== 'true';
+    localStorage.setItem(BG_VIDEO_KEY, next ? '1' : '0');
+    applyBackgroundPreference();
+    showToast(t(next ? 'settings.backgroundVideoOn' : 'settings.backgroundVideoOff'));
+  });
+  if (bgVideoSwitch) bgVideoSwitch.setAttribute('aria-checked', localStorage.getItem(BG_VIDEO_KEY) === '1' ? 'true' : 'false');
+
   clearCacheBtn?.addEventListener('click', async () => {
     await clearCache();
     showToast(t('settings.cacheCleared'));
@@ -3830,6 +3845,7 @@ function setupSyncGroup() {
  * 不再需要手写 HTML，也不会因为条目增加而撑高设置页。
  */
 const CHANGELOG_RELEASES = [
+  { version: '2.9.3', date: '2026-11-19', key: 'changelog.v293', kind: 'improve' },
   { version: '2.9.2', date: '2026-11-19', key: 'changelog.v292', kind: 'fix' },
   { version: '2.9.1', date: '2026-11-19', key: 'changelog.v291', kind: 'improve' },
   { version: '2.9.0', date: '2026-11-18', key: 'changelog.v290', kind: 'feature' },

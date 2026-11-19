@@ -63,8 +63,8 @@
 <body>
   <div id="app" class="app">
     <div class="weather-scene" id="weather-scene" aria-hidden="true">
-      <video id="weather-bg-video" class="weather-scene__video" autoplay loop muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback>
-        <source src="assets/weather-bg/sunny-day.mp4" type="video/mp4">
+      <video id="weather-bg-video" class="weather-scene__video" loop muted playsinline preload="none" disablepictureinpicture disableremoteplayback>
+        <source type="video/mp4">
       </video>
       <img id="weather-bg-img" class="weather-scene__img" src="assets/weather-bg/sunny-day.jpg" alt="">
       <div class="weather-scene__night">
@@ -416,7 +416,14 @@
                 <span class="switch__thumb" aria-hidden="true"></span>
               </button>
             </div>
-            <p class="sheet__hint" data-i18n="settings.backgroundHint">关闭后不再播放全屏视频与夜空动画，只保留静态渐变，可明显提升帧率。</p>
+            <p class="sheet__hint" data-i18n="settings.backgroundHint">关闭后不再有背景动效，只保留静态画面。</p>
+            <div class="sheet__row">
+              <span data-i18n="settings.backgroundVideo">视频背景</span>
+              <button type="button" id="bg-video-switch" class="switch" role="switch" aria-checked="false">
+                <span class="switch__thumb" aria-hidden="true"></span>
+              </button>
+            </div>
+            <p class="sheet__hint" data-i18n="settings.backgroundVideoHint">用全屏循环视频代替静态图，观感更强，但会明显降低帧率；核显设备不建议开启。</p>
             <div class="sheet__row sheet__row--stack">
               <span data-i18n="settings.motion">动效</span>
               <div class="segmented" id="motion-select" role="radiogroup" data-i18n-aria="settings.motion" data-value="normal">
@@ -482,7 +489,7 @@
           <div class="sheet__group">
             <div class="sheet__group-title" data-i18n="settings.about">关于</div>
             <div class="sheet__info">
-              <div class="sheet__row"><span data-i18n="settings.version">版本</span><span id="about-version">2.9.2</span></div>
+              <div class="sheet__row"><span data-i18n="settings.version">版本</span><span id="about-version">2.9.3</span></div>
               <div class="sheet__row"><span data-i18n="settings.device">设备机型</span><span id="about-device">—</span></div>
               <div class="sheet__row"><span data-i18n="settings.safeArea">安全区实测</span><span id="about-safe">—</span></div>
               <div class="sheet__row"><span data-i18n="settings.dataSource">数据来源</span><span>和风天气</span></div>
@@ -498,7 +505,7 @@
             <div class="sheet__changelog">
               <div class="sheet__changelog-head">
                 <span class="sheet__changelog-title" data-i18n="settings.changelog">更新内容</span>
-                <span class="sheet__changelog-current" id="changelog-current">v2.9.2</span>
+                <span class="sheet__changelog-current" id="changelog-current">v2.9.3</span>
               </div>
               <div id="changelog-latest"></div>
               <details class="sheet__changelog-history">

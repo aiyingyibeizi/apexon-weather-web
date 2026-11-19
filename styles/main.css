@@ -6686,6 +6686,39 @@ html[data-bg="off"] .weather-scene__night {
 }
 
 /* ============================
+   v2.9.3 · 背景动效改由静态图承担（Ken Burns）
+   ============================
+   视频层默认不加载（见 weather-background.js 的 syncVideoSource）。
+   动效改成对这张图做极慢的推拉：只动 transform，整条动画都在合成器上跑，
+   不触发布局、不触发重绘，成本接近 0。
+   起始就放大到 1.06，保证位移过程中不会露出图片边缘。 */
+@keyframes sceneKenBurns {
+  0%   { transform: scale(1.06) translate3d(-0.9%, -0.7%, 0); }
+  50%  { transform: scale(1.12) translate3d(0.9%, 0.7%, 0); }
+  100% { transform: scale(1.06) translate3d(-0.9%, -0.7%, 0); }
+}
+
+html[data-bg="on"]:not([data-bgvideo="on"]) .weather-scene__img {
+  animation: sceneKenBurns 32s var(--ease-in-out-sine) infinite;
+  will-change: transform;
+}
+
+/* 关背景 / 减少动效 / 诊断模式 / 用视频时都不跑这张图的推拉 */
+html[data-bg="off"] .weather-scene__img,
+html[data-bgvideo="on"] .weather-scene__img,
+html[data-motion="reduced"] .weather-scene__img,
+html[data-fx="off"] .weather-scene__img {
+  animation: none !important;
+  transform: none;
+  will-change: auto;
+}
+
+/* 首屏滚出视口后暂停，避免合成器在看不见的地方空转 */
+html[data-scrolled="1"] .weather-scene__img {
+  animation-play-state: paused;
+}
+
+/* ============================
    v2.9.2 · 诊断模式 ?fx=off
    ============================
    一次性关掉所有动画、过渡、毛玻璃与视频，只留静态页面。

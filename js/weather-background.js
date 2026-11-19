@@ -301,7 +301,9 @@ function syncVideoPlayback() {
   // 这里同步停播并释放解码器，避免后台还在白白解码。
   // ?fx=off 诊断模式同理：页面只保留静态内容。
   const bgOff = document.documentElement.dataset.bg === 'off'
-    || document.documentElement.dataset.fx === 'off';
+    || document.documentElement.dataset.fx === 'off'
+    // v2.9.3：默认不走视频。只有用户在设置里显式打开「视频背景」才解码播放。
+    || document.documentElement.dataset.bgvideo !== 'on';
   // 手指/滚轮正在滚动：先暂停解码。
   // 场景层是 fixed 的，暂停后会保留最后一帧，视觉上只是这一小段不再动；
   // 但滚动期间 GPU 不必同时做「全屏视频解码 + 页面合成」，这是 120Hz 上最实在的一笔。
@@ -404,12 +406,18 @@ document.addEventListener('scroll', onMainScroll, { passive: true, capture: true
 // 省电模式、插拔电源等会造成 reduce motion 变化，系统级媒体查询也要跟着同步
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (motionQuery.addEventListener) motionQuery.addEventListener('change', scheduleSync);
-// 设置里切换「动态背景」时立即生效，不必等下一次滚动或切页
-window.addEventListener('apexon:bgchange', scheduleSync);
+// 设置里切换「动态背景 / 视频背景」时立即生效，不必等下一次滚动或切页
+window.addEventListener('apexon:bgchange', () => {
+  syncVideoSource();
+  scheduleSync();
+});
 
-new MutationObserver(syncVideoPlayback).observe(document.documentElement, {
+new MutationObserver(() => {
+  syncVideoSource();
+  syncVideoPlayback();
+}).observe(document.documentElement, {
   attributes: true,
-  attributeFilter: ['data-motion', 'data-theme', 'data-perf', 'data-bg', 'data-fx'],
+  attributeFilter: ['data-motion', 'data-theme', 'data-perf', 'data-bg', 'data-bgvideo', 'data-fx'],
 });
 
 Object.values(WEATHER_IMAGES).forEach(preloadImage);
@@ -442,40 +450,54 @@ export function setWeatherBackground(iconCode, isDay = true, text = '') {
   const videoSrc = WEATHER_VIDEOS[sceneType];
   const imgSrc = WEATHER_IMAGES[sceneType] || 'assets/weather-bg/sunny-day.jpg';
 
-  // 图片作为兜底层：始终先加载，保证任何情况下都有画面
+  // 图片是主背景层：始终先加载，保证任何情况下都有画面，
+  // 也是 v2.9.3 起的默认动效载体（Ken Burns 缓慢推拉由合成器完成）
   imgEl.onload = () => { imgEl.style.opacity = '1'; };
   imgEl.onerror = () => { imgEl.style.opacity = '0'; };
   imgEl.src = imgSrc;
   // 首屏 HTML 里已写好 sunny-day.jpg：若首个场景恰好也是晴天，src 没变化，
-  // 浏览器不会再派发 load 事件，这里必须主动确认一次，
-  // 否则自动播放被拦截时会只剩渐变、看不到图片兜底
+  // 浏览器不会再派发 load 事件，这里必须主动确认一次
   if (imgEl.complete && imgEl.naturalWidth > 0) {
     imgEl.style.opacity = '1';
   }
 
-  if (!videoSrc) {
-    // 该场景没有视频（如晴夜）：停掉并卸载当前视频。
-    // 只把 opacity 置 0 会让上一场景的解码器继续挂在后台，
-    // 夜里的星空动画还要和它抢合成器，完全没必要。
+  syncVideoSource(videoSrc);
+}
+
+/**
+ * 视频层按需加载（v2.9.3 起默认不加载）。
+ *
+ * 全屏循环视频每出一帧，合成器都要做一次「全宽解码帧拷贝 + 缩放 + 与场景渐变混合」，
+ * 核显上单项 5~7ms，正好顶穿 120Hz 的 8.33ms 帧预算，帧率因此恒定掉到 50~70。
+ * 默认改用静态图 + Ken Burns（纯 transform，由合成器完成，成本接近 0），
+ * 想要视频观感可在设置里显式打开「视频背景」。
+ * @param {string} [videoSrc] 不传时按当前场景重新取一次
+ */
+function syncVideoSource(videoSrc) {
+  const videoEl = document.getElementById('weather-bg-video');
+  if (!videoEl) return;
+
+  const root = document.documentElement;
+  const src = videoSrc || WEATHER_VIDEOS[currentScene] || '';
+  const enabled = root.dataset.bgvideo === 'on'
+    && root.dataset.bg !== 'off'
+    && root.dataset.fx !== 'off';
+  const source = videoEl.querySelector('source');
+
+  // 关闭时卸载 src 而不只是暂停：只 pause 会保留几 MB 缓冲和解码器
+  if (!enabled || !src) {
     videoEl.pause();
     videoEl.style.opacity = '0';
     videoEl.preload = 'none';
-    const cur = videoEl.querySelector('source');
-    if (cur) cur.src = '';
+    if (source && source.getAttribute('src')) source.setAttribute('src', '');
     return;
   }
 
-  // 视频层：加载成功后淡入并压过图片层
-  const source = videoEl.querySelector('source');
-  if (source) {
-    source.src = videoSrc;
+  if (source && source.getAttribute('src') !== src) {
+    source.setAttribute('src', src);
     videoEl.load();
+    videoEl.style.opacity = '0';
+    videoEl.oncanplay = syncVideoPlayback;
   }
-
-  videoEl.style.opacity = '0';
-  // 能否播放交给统一策略裁决：后台/减少动效时干脆不播，避免空耗解码
-  const onReady = syncVideoPlayback;
-
-  videoEl.oncanplay = onReady;
-  videoEl.onerror = () => { videoEl.style.opacity = '0'; };
+  syncVideoPlayback();
 }
