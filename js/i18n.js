@@ -5636,6 +5636,7 @@ const CHANGELOG_UI_STRINGS = {
 const UPDATE_NATIVE_STRINGS = {
   'zh-CN': {
     'settings.checkUpdate': '检查更新',
+    'settings.downloadApp': '下载 App 安装包',
     'updateNative.title': '发现新版本',
     'updateNative.later': '稍后',
     'updateNative.install': '立即下载并安装',
@@ -5653,6 +5654,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   'zh-TW': {
     'settings.checkUpdate': '檢查更新',
+    'settings.downloadApp': '下載 App 安裝包',
     'updateNative.title': '發現新版本',
     'updateNative.later': '稍後',
     'updateNative.install': '立即下載並安裝',
@@ -5670,6 +5672,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   en: {
     'settings.checkUpdate': 'Check for updates',
+    'settings.downloadApp': 'Download the app',
     'updateNative.title': 'Update available',
     'updateNative.later': 'Later',
     'updateNative.install': 'Download and install',
@@ -5687,6 +5690,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   ja: {
     'settings.checkUpdate': 'アップデートを確認',
+    'settings.downloadApp': 'アプリをダウンロード',
     'updateNative.title': '新しいバージョンがあります',
     'updateNative.later': '後で',
     'updateNative.install': 'ダウンロードしてインストール',
@@ -5704,6 +5708,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   ko: {
     'settings.checkUpdate': '업데이트 확인',
+    'settings.downloadApp': '앱 다운로드',
     'updateNative.title': '새 버전이 있습니다',
     'updateNative.later': '나중에',
     'updateNative.install': '다운로드 및 설치',
@@ -5721,6 +5726,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   fr: {
     'settings.checkUpdate': 'Vérifier les mises à jour',
+    'settings.downloadApp': 'Télécharger l’application',
     'updateNative.title': 'Mise à jour disponible',
     'updateNative.later': 'Plus tard',
     'updateNative.install': 'Télécharger et installer',
@@ -5738,6 +5744,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   de: {
     'settings.checkUpdate': 'Nach Updates suchen',
+    'settings.downloadApp': 'App herunterladen',
     'updateNative.title': 'Neue Version verfügbar',
     'updateNative.later': 'Später',
     'updateNative.install': 'Herunterladen und installieren',
@@ -5755,6 +5762,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   es: {
     'settings.checkUpdate': 'Buscar actualizaciones',
+    'settings.downloadApp': 'Descargar la app',
     'updateNative.title': 'Nueva versión disponible',
     'updateNative.later': 'Más tarde',
     'updateNative.install': 'Descargar e instalar',
@@ -5772,6 +5780,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   pt: {
     'settings.checkUpdate': 'Verificar atualizações',
+    'settings.downloadApp': 'Transferir a app',
     'updateNative.title': 'Nova versão disponível',
     'updateNative.later': 'Mais tarde',
     'updateNative.install': 'Transferir e instalar',
@@ -5789,6 +5798,7 @@ const UPDATE_NATIVE_STRINGS = {
   },
   ru: {
     'settings.checkUpdate': 'Проверить обновления',
+    'settings.downloadApp': 'Скачать приложение',
     'updateNative.title': 'Доступна новая версия',
     'updateNative.later': 'Позже',
     'updateNative.install': 'Скачать и установить',

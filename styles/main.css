@@ -2543,6 +2543,11 @@ body.city-dragging {
   background: var(--surface-2);
 }
 
+/* 按钮样式的链接（如下载入口）保持与按钮一致，去掉下划线 */
+a.sheet__btn {
+  text-decoration: none;
+}
+
 .sheet__info {
   display: flex;
   flex-direction: column;
