@@ -1,0 +1,76 @@
+{
+  "id": "com.apexon.weather",
+  "platform": "android",
+  "version": "2.3.2",
+  "versionCode": null,
+  "releaseDate": null,
+  "size": null,
+  "sha256": null,
+  "fileName": "apexon-weather-2.3.2.apk",
+  "downloadUrl": "https://apexon.qzz.io/apps/apexon-weather-2.3.2.apk",
+  "minAndroidSdk": 24,
+  "apkAvailable": false,
+  "notes": {
+    "zh-CN": [
+      "新增应用内自动更新：App 启动后自动读取远端版本清单，发现新版本可直接在 App 内下载、校验并调起系统安装，不必再手动找安装包",
+      "设置页新增「检查更新」入口：原生版查远端清单，网页版查 Service Worker，两条通道都会给出明确结果",
+      "下载全程流式写入并校验 SHA-256，哈希不符自动删除文件，避免装到损坏或被篡改的安装包",
+      "更新弹窗按当前界面语言呈现该版本的更新说明，10 种语言各自显示，切换语言即时生效"
+    ],
+    "zh-TW": [
+      "新增應用內自動更新：App 啟動後自動讀取遠端版本清單，發現新版本可直接在 App 內下載、校驗並調起系統安裝，無需再手動找安裝包",
+      "設定頁新增「檢查更新」入口：原生版查遠端清單，網頁版查 Service Worker，兩條通道都會給出明確結果",
+      "下載全程串流寫入並校驗 SHA-256，雜湊不符自動刪除檔案，避免裝到損壞或被竄改的安裝包",
+      "更新彈窗依當前介面語言呈現該版本的更新說明，10 種語言各自顯示，切換語言即時生效"
+    ],
+    "en": [
+      "New in-app auto-update: on launch the app reads a remote version manifest and can download, verify and hand off to the system installer — no more hunting for an APK.",
+      "New \"Check for updates\" entry in Settings: native builds query the remote manifest, web builds query the Service Worker, and both report a clear result.",
+      "Downloads stream to disk and are verified against SHA-256; a mismatched hash deletes the file so you never install a damaged or tampered package.",
+      "The update dialog renders that version’s release notes in your current UI language, with all 10 languages supported and instant switching."
+    ],
+    "ja": [
+      "アプリ内自動更新を追加：起動時に遠隔のバージョン情報を読み取り、新バージョンをアプリ内でダウンロード・検証し、システムのインストーラーへ引き渡します。APK を探す必要はありません。",
+      "設定に「アップデートを確認」を追加：ネイティブ版は遠隔の情報を、Web 版は Service Worker を確認し、どちらも結果を明示します。",
+      "ダウンロードはストリーミングで書き込み、SHA-256 で検証。ハッシュが一致しない場合はファイルを削除し、破損・改ざんされたパッケージのインストールを防ぎます。",
+      "更新ダイアログは現在の表示言語でそのバージョンの更新内容を表示します。10 言語に対応し、切り替えは即時反映されます。"
+    ],
+    "ko": [
+      "앱 내 자동 업데이트 추가: 실행 시 원격 버전 정보를 읽어 새 버전을 앱 안에서 다운로드·검증한 뒤 시스템 설치 프로그램으로 넘깁니다. 더 이상 APK를 찾을 필요가 없습니다.",
+      "설정에 \"업데이트 확인\"을 추가: 네이티브는 원격 정보를, 웹은 Service Worker를 확인하며 두 경로 모두 결과를 명확히 알려줍니다.",
+      "다운로드는 스트리밍으로 기록하고 SHA-256으로 검증합니다. 해시가 다르면 파일을 삭제해 손상되거나 변조된 패키지 설치를 막습니다.",
+      "업데이트 창은 현재 표시 언어로 해당 버전의 변경 내용을 보여줍니다. 10개 언어를 지원하며 전환은 즉시 반영됩니다."
+    ],
+    "fr": [
+      "Nouvelle mise à jour automatique dans l’app : au lancement, l’app lit un manifeste de version distant et peut télécharger, vérifier puis confier l’installation au système — plus besoin de chercher un APK.",
+      "Nouvelle entrée « Vérifier les mises à jour » dans les Réglages : les versions natives interrogent le manifeste distant, les versions web le Service Worker, avec un résultat clair dans les deux cas.",
+      "Le téléchargement s’écrit en flux et est vérifié par SHA-256 ; un hachage non conforme supprime le fichier, pour ne jamais installer un paquet endommagé ou altéré.",
+      "La fenêtre de mise à jour affiche les notes de cette version dans votre langue d’interface, parmi les 10 prises en charge, avec un basculement immédiat."
+    ],
+    "de": [
+      "Neues automatisches In-App-Update: Beim Start liest die App ein entferntes Versions-Manifest und kann herunterladen, prüfen und an den System-Installer übergeben — kein Suchen nach einer APK mehr.",
+      "Neuer Eintrag „Nach Updates suchen“ in den Einstellungen: native Builds fragen das entfernte Manifest ab, Web-Builds den Service Worker — beide melden ein klares Ergebnis.",
+      "Downloads werden gestreamt geschrieben und per SHA-256 geprüft; bei abweichendem Hash wird die Datei gelöscht, damit nie ein beschädigtes oder manipuliertes Paket installiert wird.",
+      "Der Update-Dialog zeigt die Versionshinweise in deiner aktuellen Oberflächensprache — alle 10 Sprachen unterstützt, Umschalten wirkt sofort."
+    ],
+    "es": [
+      "Nueva actualización automática dentro de la app: al arrancar lee un manifiesto de versión remoto y puede descargar, verificar y pasar el paquete al instalador del sistema — sin buscar APK a mano.",
+      "Nueva entrada «Buscar actualizaciones» en Ajustes: las versiones nativas consultan el manifiesto remoto y las web el Service Worker, ambas con un resultado claro.",
+      "La descarga se escribe en streaming y se verifica con SHA-256; si el hash no coincide se borra el archivo, para no instalar nunca un paquete dañado o alterado.",
+      "El diálogo de actualización muestra las notas de esa versión en tu idioma de interfaz, con los 10 idiomas soportados y cambio inmediato."
+    ],
+    "pt": [
+      "Nova atualização automática na app: ao iniciar, lê um manifesto de versão remoto e pode transferir, verificar e entregar ao instalador do sistema — sem procurar APK manualmente.",
+      "Nova entrada «Verificar atualizações» nos Ajustes: as versões nativas consultam o manifesto remoto e as web o Service Worker, ambas com um resultado claro.",
+      "A transferência é escrita em streaming e verificada por SHA-256; se o hash não coincidir o ficheiro é apagado, para nunca instalar um pacote danificado ou adulterado.",
+      "A janela de atualização mostra as notas dessa versão no teu idioma de interface, com os 10 idiomas suportados e troca imediata."
+    ],
+    "ru": [
+      "Новое автообновление в приложении: при запуске читается удалённый манифест версии, новая версия скачивается, проверяется и передаётся системному установщику — искать APK вручную больше не нужно.",
+      "Новый пункт «Проверить обновления» в настройках: нативная версия опрашивает удалённый манифест, веб-версия — Service Worker; оба пути дают чёткий результат.",
+      "Загрузка идёт потоково и проверяется по SHA-256; при несовпадении хэша файл удаляется, чтобы не установить повреждённый или подменённый пакет.",
+      "Окно обновления показывает список изменений этой версии на текущем языке интерфейса — поддержаны все 10 языков, переключение мгновенное."
+    ]
+  },
+  "archiveNote": "该版本 APK 未留存：tools/make-app-json.py 每次发布都会清空 dist/release 后重建，历史安装包已在之前的发布流程中被覆盖。如需补齐，把当时的安装包放回本目录并重命名为 apexon-weather-{version}.apk 即可。"
+}
