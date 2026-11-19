@@ -410,6 +410,13 @@
                 <button type="button" class="segmented__opt" role="radio" aria-checked="false" data-value="f">°F</button>
               </div>
             </div>
+            <div class="sheet__row">
+              <span data-i18n="settings.background">动态背景</span>
+              <button type="button" id="bg-switch" class="switch" role="switch" aria-checked="true" data-i18n-aria="settings.background">
+                <span class="switch__thumb" aria-hidden="true"></span>
+              </button>
+            </div>
+            <p class="sheet__hint" data-i18n="settings.backgroundHint">关闭后不再播放全屏视频与夜空动画，只保留静态渐变，可明显提升帧率。</p>
             <div class="sheet__row sheet__row--stack">
               <span data-i18n="settings.motion">动效</span>
               <div class="segmented" id="motion-select" role="radiogroup" data-i18n-aria="settings.motion" data-value="normal">
@@ -475,7 +482,7 @@
           <div class="sheet__group">
             <div class="sheet__group-title" data-i18n="settings.about">关于</div>
             <div class="sheet__info">
-              <div class="sheet__row"><span data-i18n="settings.version">版本</span><span id="about-version">2.9.0</span></div>
+              <div class="sheet__row"><span data-i18n="settings.version">版本</span><span id="about-version">2.9.1</span></div>
               <div class="sheet__row"><span data-i18n="settings.device">设备机型</span><span id="about-device">—</span></div>
               <div class="sheet__row"><span data-i18n="settings.safeArea">安全区实测</span><span id="about-safe">—</span></div>
               <div class="sheet__row"><span data-i18n="settings.dataSource">数据来源</span><span>和风天气</span></div>
@@ -491,7 +498,7 @@
             <div class="sheet__changelog">
               <div class="sheet__changelog-head">
                 <span class="sheet__changelog-title" data-i18n="settings.changelog">更新内容</span>
-                <span class="sheet__changelog-current" id="changelog-current">v2.9.0</span>
+                <span class="sheet__changelog-current" id="changelog-current">v2.9.1</span>
               </div>
               <div id="changelog-latest"></div>
               <details class="sheet__changelog-history">

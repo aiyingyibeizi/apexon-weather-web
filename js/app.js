@@ -355,6 +355,7 @@ export async function initApp() {
   });
   applyTheme();
   applyMotionPreference();
+  applyBackgroundPreference();
   setupRouter();
   setupSearch();
   setupNavigation();
@@ -558,6 +559,21 @@ const MOTION_KEY = 'apexon_reduce_motion';
 function applyMotionPreference() {
   const reduced = localStorage.getItem(MOTION_KEY) === '1';
   document.documentElement.dataset.motion = reduced ? 'reduced' : 'normal';
+}
+
+/**
+ * 动态背景：默认开启。
+ * 关闭后 <html data-bg="off">，CSS 把视频与夜空动画层移出合成，
+ * 同时通知背景模块暂停解码 —— 低配机/高分屏下这是最直接的一笔帧率。
+ */
+const BG_KEY = 'apexon_dynamic_bg';
+
+function applyBackgroundPreference() {
+  const on = localStorage.getItem(BG_KEY) !== '0';
+  document.documentElement.dataset.bg = on ? 'on' : 'off';
+  const sw = document.getElementById('bg-switch');
+  if (sw) sw.setAttribute('aria-checked', on ? 'true' : 'false');
+  window.dispatchEvent(new Event('apexon:bgchange'));
 }
 
 /* ============================
@@ -3652,6 +3668,15 @@ function setupSettingsSheet() {
     },
   );
 
+  const bgSwitch = $('#bg-switch');
+  bgSwitch?.addEventListener('click', () => {
+    const next = bgSwitch.getAttribute('aria-checked') !== 'true';
+    localStorage.setItem(BG_KEY, next ? '1' : '0');
+    applyBackgroundPreference();
+    showToast(t(next ? 'settings.backgroundOn' : 'settings.backgroundOff'));
+  });
+  if (bgSwitch) bgSwitch.setAttribute('aria-checked', localStorage.getItem(BG_KEY) !== '0' ? 'true' : 'false');
+
   clearCacheBtn?.addEventListener('click', async () => {
     await clearCache();
     showToast(t('settings.cacheCleared'));
@@ -3799,6 +3824,7 @@ function setupSyncGroup() {
  * 不再需要手写 HTML，也不会因为条目增加而撑高设置页。
  */
 const CHANGELOG_RELEASES = [
+  { version: '2.9.1', date: '2026-11-19', key: 'changelog.v291', kind: 'improve' },
   { version: '2.9.0', date: '2026-11-18', key: 'changelog.v290', kind: 'feature' },
   { version: '2.8.6', date: '2026-11-18', key: 'changelog.v286', kind: 'improve' },
   { version: '2.8.5', date: '2026-11-18', key: 'changelog.v285', kind: 'improve' },

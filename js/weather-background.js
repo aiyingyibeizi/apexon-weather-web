@@ -297,6 +297,9 @@ function syncVideoPlayback() {
   // 这种网络下拉回来也放不动，只会卡住整个页面的请求队列。
   const conn = navigator.connection;
   const slowNet = !!(conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')));
+  // 设置里的「动态背景」总开关：关掉后视频层已被 CSS 移出合成，
+  // 这里同步停播并释放解码器，避免后台还在白白解码。
+  const bgOff = document.documentElement.dataset.bg === 'off';
   // 手指/滚轮正在滚动：先暂停解码。
   // 场景层是 fixed 的，暂停后会保留最后一帧，视觉上只是这一小段不再动；
   // 但滚动期间 GPU 不必同时做「全屏视频解码 + 页面合成」，这是 120Hz 上最实在的一笔。
@@ -304,19 +307,19 @@ function syncVideoPlayback() {
     if (!video.paused) video.pause();
     return;
   }
-  if (!document.hidden && !reduced && !cheap && !slowNet && sceneOffscreen) {
+  if (!document.hidden && !reduced && !cheap && !slowNet && !bgOff && sceneOffscreen) {
     // 只是滚出了视口：暂停但保留最后一帧，滚回来时无需再等 0.8s 淡入
     if (!video.paused) video.pause();
     return;
   }
-  const shouldPlay = !document.hidden && !reduced && !cheap && !slowNet;
+  const shouldPlay = !document.hidden && !reduced && !cheap && !slowNet && !bgOff;
   if (!shouldPlay) {
     // 隐藏视频层退回图片兜底：暂停但保留最后一帧会定格成一个「假视频」
     if (video.style.opacity !== '0') video.style.opacity = '0';
     if (!video.paused) video.pause();
     // 长期不播就释放解码器与已缓冲的数据。只 pause 不释放的话，
     // 硬件解码器和几 MB 的缓冲会一直挂在进程里，后台/低电量时很浪费。
-    if (document.hidden || reduced) video.preload = 'none';
+    if (document.hidden || reduced || bgOff) video.preload = 'none';
     return;
   }
   // 真要用的时候才允许预载：首屏 HTML 里是 metadata，
@@ -386,10 +389,12 @@ document.addEventListener('visibilitychange', syncVideoPlayback);
 // 省电模式、插拔电源等会造成 reduce motion 变化，系统级媒体查询也要跟着同步
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (motionQuery.addEventListener) motionQuery.addEventListener('change', syncVideoPlayback);
+// 设置里切换「动态背景」时立即生效，不必等下一次滚动或切页
+window.addEventListener('apexon:bgchange', syncVideoPlayback);
 
 new MutationObserver(syncVideoPlayback).observe(document.documentElement, {
   attributes: true,
-  attributeFilter: ['data-motion', 'data-theme', 'data-perf'],
+  attributeFilter: ['data-motion', 'data-theme', 'data-perf', 'data-bg'],
 });
 
 Object.values(WEATHER_IMAGES).forEach(preloadImage);

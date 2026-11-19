@@ -5609,7 +5609,61 @@ const V290_CHANGELOG = {
   ],
 };
 
-/** 更新记录时间线的界面标签（类型徽标等） */
+/** v2.9.1 —— 动态背景开关，低配设备可一键释放帧率 */
+const V291_CHANGELOG = {
+  'zh-CN': [
+    '设置新增「动态背景」开关：一键停掉全屏视频与夜空动画，只保留静态渐变，低配设备帧率提升最明显。',
+    '「动效」选项更名为「降低动效」，开启后同时停用场景动画与视频解码。',
+    '关闭动态背景后天气信息、配色与布局完全不变，只是画面不再动。',
+  ],
+  'zh-TW': [
+    '設定新增「動態背景」開關：一鍵停掉全螢幕影片與夜空動畫，只保留靜態漸層，低配裝置幀率提升最明顯。',
+    '「動效」選項更名為「降低動效」，開啟後同時停用場景動畫與影片解碼。',
+    '關閉動態背景後天氣資訊、配色與版面完全不變，只是畫面不再動。',
+  ],
+  en: [
+    'New "Animated background" switch: stops the full-screen video and night sky animations at once, keeping only the static gradient. The biggest frame-rate win on low-end devices.',
+    'The "Motion" option is now "Reduced motion" and also stops scene animation and video decoding.',
+    'With the animated background off, weather data, colours and layout stay exactly the same — only the motion is gone.',
+  ],
+  ja: [
+    '設定に「動く背景」スイッチを追加。全画面動画と夜空のアニメーションをまとめて停止し、静的なグラデーションのみにできます。低スペック端末ほど効果的です。',
+    '「モーション」を「モーションを減らす」に改称。オンにするとシーンのアニメーションと動画デコードも停止します。',
+    '動く背景をオフにしても天気情報・配色・レイアウトは変わらず、動きだけが止まります。',
+  ],
+  ko: [
+    '설정에 「동적 배경」 스위치를 추가했습니다. 전체 화면 동영상과 밤하늘 애니메이션을 한 번에 끄고 정적 그라데이션만 남깁니다. 저사양 기기에서 효과가 가장 큽니다.',
+    '「모션」을 「모션 줄이기」로 바꿨으며, 켜면 장면 애니메이션과 동영상 디코딩도 중지됩니다.',
+    '동적 배경을 꺼도 날씨 정보, 색상, 레이아웃은 그대로이며 움직임만 사라집니다.',
+  ],
+  fr: [
+    'Nouveau réglage « Fond animé » : coupe d’un coup la vidéo plein écran et les animations du ciel nocturne, en ne gardant que le dégradé statique. Le gain de fluidité est le plus net sur les appareils modestes.',
+    'L’option « Animations » devient « Réduire les animations » et arrête aussi l’animation de la scène et le décodage vidéo.',
+    'Fond animé désactivé, les données météo, les couleurs et la mise en page restent identiques : seul le mouvement disparaît.',
+  ],
+  de: [
+    'Neuer Schalter „Animierter Hintergrund“: stoppt Vollbildvideo und Nachthimmel-Animationen auf einmal und lässt nur den statischen Verlauf übrig. Auf schwächeren Geräten der größte Bildratengewinn.',
+    'Die Option „Bewegung“ heißt jetzt „Bewegung reduzieren“ und stoppt zusätzlich Szenenanimation und Videodekodierung.',
+    'Bei ausgeschaltetem Hintergrund bleiben Wetterdaten, Farben und Layout unverändert – nur die Bewegung entfällt.',
+  ],
+  es: [
+    'Nuevo ajuste «Fondo animado»: detiene a la vez el vídeo a pantalla completa y las animaciones del cielo nocturno, dejando solo el degradado estático. Es la mayor mejora de fluidez en equipos modestos.',
+    'La opción «Movimiento» pasa a «Reducir movimiento» y también detiene la animación de la escena y la decodificación de vídeo.',
+    'Con el fondo animado desactivado, los datos, los colores y el diseño no cambian: solo desaparece el movimiento.',
+  ],
+  pt: [
+    'Nova opção «Fundo animado»: para de uma vez o vídeo em ecrã inteiro e as animações do céu noturno, mantendo apenas o gradiente estático. É o maior ganho de fluidez em equipamentos modestos.',
+    'A opção «Movimento» passa a «Reduzir movimento» e também para a animação da cena e a descodificação de vídeo.',
+    'Com o fundo animado desativado, os dados, as cores e o layout mantêm-se iguais: só o movimento desaparece.',
+  ],
+  ru: [
+    'Новый переключатель «Анимированный фон»: сразу останавливает полноэкранное видео и анимацию ночного неба, оставляя только статичный градиент. На слабых устройствах это самый заметный прирост частоты кадров.',
+    'Пункт «Анимация» переименован в «Меньше анимации» и теперь также останавливает анимацию сцены и декодирование видео.',
+    'При выключенном фоне данные о погоде, цвета и вёрстка не меняются — исчезает только движение.',
+  ],
+};
+
+
 const CHANGELOG_UI_STRINGS = {
   'zh-CN': { 'settings.changelogFix': '问题修复', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '体验优化' },
   'zh-TW': { 'settings.changelogFix': '問題修復', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '體驗優化' },
@@ -5629,6 +5683,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v285'] = V285_CHANGELOG[lang] || V285_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v286'] = V286_CHANGELOG[lang] || V286_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v290'] = V290_CHANGELOG[lang] || V290_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v291'] = V291_CHANGELOG[lang] || V291_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 
@@ -6010,7 +6065,11 @@ const FOLLOWUP_STRINGS = {
     'cities.compareHint': '按已存城市顺序',
     'settings.motion': '动效',
     'settings.motionNormal': '标准',
-    'settings.motionReduced': '减少动效',
+    'settings.motionReduced': '降低动效',
+    'settings.background': '动态背景',
+    'settings.backgroundHint': '关闭后不再播放全屏视频与夜空动画，只保留静态渐变，可明显提升帧率。',
+    'settings.backgroundOn': '已开启动态背景',
+    'settings.backgroundOff': '已关闭动态背景',
     'settings.motionUpdated': '动效设置已更新',
     'help.title': '键盘快捷键',
     'help.search': '搜索城市',
@@ -6055,7 +6114,11 @@ const FOLLOWUP_STRINGS = {
     'cities.compareHint': '依已存城市順序',
     'settings.motion': '動效',
     'settings.motionNormal': '標準',
-    'settings.motionReduced': '減少動效',
+    'settings.motionReduced': '降低動效',
+    'settings.background': '動態背景',
+    'settings.backgroundHint': '關閉後不再播放全螢幕影片與夜空動畫，只保留靜態漸層，可明顯提升幀率。',
+    'settings.backgroundOn': '已開啟動態背景',
+    'settings.backgroundOff': '已關閉動態背景',
     'settings.motionUpdated': '動效設定已更新',
     'help.title': '鍵盤快速鍵',
     'help.search': '搜尋城市',
@@ -6101,6 +6164,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'Motion',
     'settings.motionNormal': 'Standard',
     'settings.motionReduced': 'Reduced motion',
+    'settings.background': 'Animated background',
+    'settings.backgroundHint': 'When off, the full-screen video and night sky animations stop; only the static gradient remains, which noticeably raises frame rate.',
+    'settings.backgroundOn': 'Animated background on',
+    'settings.backgroundOff': 'Animated background off',
     'settings.motionUpdated': 'Motion preference updated',
     'help.title': 'Keyboard shortcuts',
     'help.search': 'Search cities',
@@ -6146,6 +6213,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'モーション',
     'settings.motionNormal': '標準',
     'settings.motionReduced': 'モーションを減らす',
+    'settings.background': '動く背景',
+    'settings.backgroundHint': 'オフにすると全画面動画と夜空のアニメーションを停止し、静的なグラデーションのみになります。フレームレートが大きく向上します。',
+    'settings.backgroundOn': '動く背景をオンにしました',
+    'settings.backgroundOff': '動く背景をオフにしました',
     'settings.motionUpdated': 'モーション設定を更新しました',
     'help.title': 'キーボードショートカット',
     'help.search': '都市を検索',
@@ -6191,6 +6262,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': '모션',
     'settings.motionNormal': '표준',
     'settings.motionReduced': '모션 줄이기',
+    'settings.background': '동적 배경',
+    'settings.backgroundHint': '끄면 전체 화면 동영상과 밤하늘 애니메이션이 멈추고 정적 그라데이션만 남습니다. 프레임률이 크게 올라갑니다.',
+    'settings.backgroundOn': '동적 배경 켬',
+    'settings.backgroundOff': '동적 배경 끔',
     'settings.motionUpdated': '모션 설정을 변경했습니다',
     'help.title': '키보드 단축키',
     'help.search': '도시 검색',
@@ -6236,6 +6311,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'Animations',
     'settings.motionNormal': 'Standard',
     'settings.motionReduced': 'Réduire les animations',
+    'settings.background': 'Fond animé',
+    'settings.backgroundHint': 'Désactivé, la vidéo plein écran et les animations du ciel nocturne s’arrêtent ; seul le dégradé statique reste, ce qui améliore nettement la fluidité.',
+    'settings.backgroundOn': 'Fond animé activé',
+    'settings.backgroundOff': 'Fond animé désactivé',
     'settings.motionUpdated': 'Préférence d’animation mise à jour',
     'help.title': 'Raccourcis clavier',
     'help.search': 'Rechercher une ville',
@@ -6281,6 +6360,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'Bewegung',
     'settings.motionNormal': 'Standard',
     'settings.motionReduced': 'Bewegung reduzieren',
+    'settings.background': 'Animierter Hintergrund',
+    'settings.backgroundHint': 'Aus: Das Vollbildvideo und die Nachthimmel-Animationen stoppen, nur der statische Verlauf bleibt – deutlich höhere Bildrate.',
+    'settings.backgroundOn': 'Animierter Hintergrund an',
+    'settings.backgroundOff': 'Animierter Hintergrund aus',
     'settings.motionUpdated': 'Bewegungseinstellung aktualisiert',
     'help.title': 'Tastenkürzel',
     'help.search': 'Stadt suchen',
@@ -6326,6 +6409,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'Movimiento',
     'settings.motionNormal': 'Estándar',
     'settings.motionReduced': 'Reducir movimiento',
+    'settings.background': 'Fondo animado',
+    'settings.backgroundHint': 'Al desactivarlo se detienen el vídeo a pantalla completa y las animaciones del cielo nocturno; solo queda el degradado estático, con una mejora clara de fluidez.',
+    'settings.backgroundOn': 'Fondo animado activado',
+    'settings.backgroundOff': 'Fondo animado desactivado',
     'settings.motionUpdated': 'Preferencia de movimiento actualizada',
     'help.title': 'Atajos de teclado',
     'help.search': 'Buscar ciudades',
@@ -6371,6 +6458,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'Movimento',
     'settings.motionNormal': 'Padrão',
     'settings.motionReduced': 'Reduzir movimento',
+    'settings.background': 'Fundo animado',
+    'settings.backgroundHint': 'Ao desativar, o vídeo em ecrã inteiro e as animações do céu noturno param; fica apenas o gradiente estático, com ganho claro de fluidez.',
+    'settings.backgroundOn': 'Fundo animado ativado',
+    'settings.backgroundOff': 'Fundo animado desativado',
     'settings.motionUpdated': 'Preferência de movimento atualizada',
     'help.title': 'Atalhos de teclado',
     'help.search': 'Pesquisar cidades',
@@ -6416,6 +6507,10 @@ const FOLLOWUP_STRINGS = {
     'settings.motion': 'Анимация',
     'settings.motionNormal': 'Стандартная',
     'settings.motionReduced': 'Меньше анимации',
+    'settings.background': 'Анимированный фон',
+    'settings.backgroundHint': 'Если выключить, полноэкранное видео и анимация ночного неба останавливаются, остаётся только статичный градиент — частота кадров заметно растёт.',
+    'settings.backgroundOn': 'Анимированный фон включён',
+    'settings.backgroundOff': 'Анимированный фон выключен',
     'settings.motionUpdated': 'Настройка анимации обновлена',
     'help.title': 'Горячие клавиши',
     'help.search': 'Поиск городов',
