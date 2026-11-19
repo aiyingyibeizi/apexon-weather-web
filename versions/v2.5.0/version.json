@@ -1,0 +1,96 @@
+{
+  "id": "com.apexon.weather",
+  "platform": "android",
+  "version": "2.5.0",
+  "versionCode": 19,
+  "releaseDate": "2026-10-17",
+  "size": 37944253,
+  "sha256": "5B19C3710B69B563394F2FD1A6AC16DF3865EAB611E5460698EFA9244BBAF578",
+  "fileName": "apexon-weather-2.5.0.apk",
+  "downloadUrl": "https://apexon.qzz.io/apps/apexon-weather-2.5.0.apk",
+  "minAndroidSdk": 24,
+  "apkAvailable": false,
+  "notes": {
+    "zh-CN": [
+      "修复城市页与发现页瞬间跳回首页：底部导航不再被误当成页面标识，任意点击都不会触发跳转",
+      "修复天气未加载时那个巨大的播放按钮：背景视频层默认隐藏，只有真正播放成功后才淡入",
+      "顶栏改为永久固定，刘海与状态栏区域不再被页面内容穿透；轻点顶栏空白处即可一键回到页面顶端",
+      "返回键改为「连按两次才退出」：子页与弹层内按返回优先切页或关闭，避免误触直接退出应用",
+      "首次进入即完成机型与安全区识别，不必再刷新一次；新增安卓桌面小组件，支持 2x2 / 4x2 / 4x4 自由拉伸",
+      "设置页：移除 GitHub 登录入口，「退出登录」与「退出应用」分开展示，每日接口额度大幅放开至 5000 / 20000"
+    ],
+    "zh-TW": [
+      "修正城市頁與發現頁瞬間跳回首頁：底部導覽不再被誤當成頁面標識，任意點擊都不會觸發跳轉",
+      "修正天氣尚未載入時那個巨大的播放按鈕：背景影片層預設隱藏，只有真正播放成功後才淡入",
+      "頂欄改為永久固定，瀏海與狀態列區域不再被頁面內容穿透；輕點頂欄空白處即可一鍵回到頁面頂端",
+      "返回鍵改為「連按兩次才結束」：子頁與彈層內按返回優先切頁或關閉，避免誤觸直接結束應用",
+      "首次進入即完成機型與安全區識別，不必再重新整理一次；新增 Android 桌面小工具，支援 2x2 / 4x2 / 4x4 自由拉伸",
+      "設定頁：移除 GitHub 登入入口，「登出」與「結束應用」分開顯示，每日介面額度大幅放寬至 5000 / 20000"
+    ],
+    "en": [
+      "Fixed Cities and Discover bouncing straight back to Home: the bottom nav is no longer mistaken for a page marker, so no tap causes a stray jump.",
+      "Fixed the giant play button that showed before the weather loaded: the background video layer now starts hidden and only fades in once playback really succeeds.",
+      "The top bar is now permanently fixed — no content leaks through the notch or status bar, and tapping the empty part of the bar jumps the page back to the top.",
+      "Back now needs two presses to leave the app: inside sub-pages and sheets it changes page or closes the sheet first, so an accidental tap no longer quits.",
+      "Device family and safe-area detection now runs on first launch instead of after a reload; added an Android home-screen widget that resizes freely from 2x2 to 4x4.",
+      "Settings: the GitHub sign-in entry is gone, \"Sign out\" and \"Quit app\" are visually separated, and the daily API allowance is now 5000 / 20000 — effectively no limit in daily use."
+    ],
+    "ja": [
+      "「都市」「発見」をタップすると即座にホームへ戻ってしまう不具合を修正：下部ナビがページ識別子と誤認されなくなりました。",
+      "天気の読み込み前に出ていた大きな再生ボタンを修正：背景動画レイヤーは既定で非表示、実際に再生できたときだけフェードインします。",
+      "上部バーを常時固定に変更。ノッチやステータスバー領域を内容が突き抜けなくなり、バーの余白をタップするとページ先頭へ戻ります。",
+      "戻るキーは「2 回押しで終了」に変更。サブページやパネル内ではページ移動・閉じるが優先され、誤タップで終了しません。",
+      "初回起動時に機種とセーフエリアを判定（再読み込み不要）。Android のホームウィジェットを追加し、2x2〜4x4 まで自由にリサイズできます。",
+      "設定画面：GitHub ログインの入口を削除し「ログアウト」と「アプリを終了」を分離。1 日の API 上限を 5000 / 20000 に大幅緩和しました。"
+    ],
+    "ko": [
+      "도시·발견 페이지를 탭하면 곧바로 홈으로 튕기던 문제를 수정했습니다. 하단 내비게이션이 페이지 식별자로 오인되지 않습니다.",
+      "날씨를 불러오기 전 표시되던 거대한 재생 버튼을 수정했습니다. 배경 영상 레이어는 기본 숨김, 실제 재생에 성공했을 때만 페이드인합니다.",
+      "상단 바를 항상 고정했습니다. 노치와 상태 표시줄 영역을 내용이 뚫고 지나가지 않으며, 빈 곳을 탭하면 페이지 맨 위로 이동합니다.",
+      "뒤로 가기는 \"두 번 눌러 종료\"로 변경했습니다. 하위 페이지와 패널에서는 페이지 이동·닫기가 우선이라 실수로 앱이 종료되지 않습니다.",
+      "첫 실행부터 기종과 안전 영역을 인식하므로 새로고침이 필요 없습니다. Android 홈 위젯을 추가해 2x2~4x4까지 자유롭게 조절할 수 있습니다.",
+      "설정: GitHub 로그인 항목을 제거하고 \"로그아웃\"과 \"앱 종료\"를 분리했습니다. 하루 API 한도를 5000 / 20000으로 크게 완화했습니다."
+    ],
+    "fr": [
+      "« Villes » et « Découvrir » revenaient aussitôt à l’accueil : corrigé, la barre inférieure n’est plus confondue avec un identifiant de page.",
+      "Le gigantesque bouton de lecture affiché avant le chargement de la météo est corrigé : la couche vidéo reste masquée et n’apparaît qu’une fois la lecture réellement lancée.",
+      "La barre supérieure est désormais fixe : le contenu ne traverse plus l’encoche ni la barre d’état, et un appui sur une zone vide fait remonter la page en haut.",
+      "Le retour demande maintenant deux appuis pour quitter l’app ; dans les sous-pages et les panneaux, il change de page ou ferme d’abord, pour éviter une sortie accidentelle.",
+      "Détection du modèle et des zones sûres dès le premier lancement (plus besoin de recharger) ; ajout d’un widget Android redimensionnable de 2x2 à 4x4.",
+      "Réglages : l’entrée GitHub a été retirée, « Se déconnecter » et « Quitter l’app » sont séparés, et le quota API journalier passe à 5000 / 20000."
+    ],
+    "de": [
+      "„Städte“ und „Entdecken“ sprangen sofort zurück zur Startseite – behoben: die untere Navigationsleiste wird nicht mehr als Seitenkennung missverstanden.",
+      "Der riesige Play-Button vor dem Laden der Wetterdaten ist weg: die Videoebene ist standardmäßig unsichtbar und erscheint erst nach erfolgreichem Start.",
+      "Die obere Leiste ist jetzt fest: keine Inhalte laufen mehr durch Notch oder Statusleiste, und ein Tippen auf die freie Fläche springt an den Seitenanfang.",
+      "Zurück erfordert nun zwei Drücke zum Beenden; in Untermenüs und Panels wird zuerst navigiert bzw. geschlossen – kein versehentliches Beenden mehr.",
+      "Gerätefamilie und Sicherheitsbereiche werden schon beim ersten Start erkannt (kein Neuladen nötig); neues Android-Widget, frei skalierbar von 2x2 bis 4x4.",
+      "Einstellungen: GitHub-Anmeldung entfernt, „Abmelden“ und „App beenden“ getrennt, Tageslimit der API auf 5000 / 20000 erhöht."
+    ],
+    "es": [
+      "«Ciudades» y «Descubrir» volvían al instante a Inicio: corregido, la barra inferior ya no se confunde con un identificador de página.",
+      "Corregido el enorme botón de reproducción que aparecía antes de cargar el tiempo: la capa de vídeo queda oculta y solo aparece cuando la reproducción arranca de verdad.",
+      "La barra superior ahora es fija: el contenido no atraviesa el notch ni la barra de estado, y tocar una zona vacía devuelve la página al principio.",
+      "Atrás ahora exige dos pulsaciones para salir; en subpáginas y paneles primero navega o cierra, así que un toque accidental ya no cierra la app.",
+      "La detección de modelo y áreas seguras se hace en el primer arranque, sin recargar; nuevo widget de Android redimensionable de 2x2 a 4x4.",
+      "Ajustes: se quitó GitHub, «Cerrar sesión» y «Salir de la aplicación» están separados, y el límite diario de API sube a 5000 / 20000."
+    ],
+    "pt": [
+      "«Cidades» e «Descobrir» voltavam logo ao início: corrigido, a barra inferior já não é confundida com um identificador de página.",
+      "Corrigido o enorme botão de reprodução que surgia antes de carregar o tempo: a camada de vídeo fica oculta e só aparece quando a reprodução começa de facto.",
+      "A barra superior passa a ser fixa: o conteúdo já não atravessa o notch nem a barra de estado, e tocar numa zona vazia volta ao topo da página.",
+      "O botão voltar exige agora dois toques para sair; em subpáginas e painéis navega ou fecha primeiro, evitando saídas acidentais.",
+      "A deteção de modelo e áreas seguras acontece no primeiro arranque, sem recarregar; novo widget Android redimensionável de 2x2 a 4x4.",
+      "Definições: entrada GitHub removida, «Terminar sessão» e «Sair da aplicação» separados, e o limite diário de API sobe para 5000 / 20000."
+    ],
+    "ru": [
+      "«Города» и «Обзор» мгновенно возвращали на главную — исправлено: нижняя навигация больше не воспринимается как идентификатор страницы.",
+      "Исправлена огромная кнопка воспроизведения до загрузки погоды: видео-слой скрыт по умолчанию и появляется только после реального запуска.",
+      "Верхняя панель теперь закреплена: контент не проходит сквозь вырез и строку состояния, а тап по пустому месту возвращает страницу наверх.",
+      "Кнопка «назад» теперь требует двух нажатий для выхода; на подстраницах и в панелях сначала переход или закрытие — случайный выход исключён.",
+      "Определение модели и безопасных зон выполняется при первом запуске, без перезагрузки; добавлен виджет Android с изменением размера от 2x2 до 4x4.",
+      "Настройки: вход через GitHub убран, «Выйти из аккаунта» и «Выйти из приложения» разделены, суточный лимит API увеличен до 5000 / 20000."
+    ]
+  },
+  "archiveNote": "该版本 APK 未留存：tools/make-app-json.py 每次发布都会清空 dist/release 后重建，历史安装包已在之前的发布流程中被覆盖。如需补齐，把当时的安装包放回本目录并重命名为 apexon-weather-{version}.apk 即可。"
+}
