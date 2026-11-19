@@ -1,0 +1,95 @@
+{
+  "id": "com.apexon.weather",
+  "platform": "android",
+  "version": "2.7.0",
+  "versionCode": 21,
+  "releaseDate": "2026-10-24",
+  "size": 37989219,
+  "sha256": "0D52F08B5B5904DBA27EA9066FF0A33CFC333A399AEE0B98A37AACE9D26CBC37",
+  "fileName": "apexon-weather-2.7.0.apk",
+  "downloadUrl": "https://apexon.qzz.io/apps/apexon-weather-2.7.0.apk",
+  "minAndroidSdk": 24,
+  "apkAvailable": true,
+  "notes": {
+    "zh-CN": [
+      "全面适配 120Hz 高刷屏：动画与滚动统一交给合成层，滑动、下拉刷新与切页的跟手感明显更顺。",
+      "滚动与手势改为按帧提交：高频触摸事件不再逐条写 DOM，长列表滚动更稳、掉帧更少。",
+      "App 退到后台或开启「减少动效」时自动暂停背景视频解码，并取消启动时预加载全部天气视频，发热与耗电明显下降。",
+      "桌面小组件换装矢量天气图标，取代原先的 emoji，任何分辨率下都清晰锐利。",
+      "小组件新增 4×2 版式，并按晴 / 云 / 雨 / 雪 / 雷 / 雾 / 夜间自动切换渐变背景。",
+      "小组件自主刷新的容错更完善：网络失败时保留上一次数据并重新排程，不再出现空白格子。"
+    ],
+    "zh-TW": [
+      "全面適配 120Hz 高更新率螢幕：動畫與捲動統一交給合成層，滑動、下拉重新整理與切頁的手感明顯更順。",
+      "捲動與手勢改為逐幀提交：高頻觸控事件不再逐筆寫入 DOM，長列表捲動更穩、掉幀更少。",
+      "App 退到背景或開啟「減少動效」時自動暫停背景影片解碼，並取消啟動時預載全部天氣影片，發熱與耗電明顯下降。",
+      "桌面小工具換裝向量天氣圖示，取代原本的 emoji，任何解析度下都清晰銳利。",
+      "小工具新增 4×2 版式，並依晴 / 雲 / 雨 / 雪 / 雷 / 霧 / 夜間自動切換漸層背景。",
+      "小工具自主更新的容錯更完善：網路失敗時保留上一次資料並重新排程，不再出現空白格子。"
+    ],
+    "en": [
+      "Full 120Hz support: animations and scrolling now stay on the compositor, so swiping, pull-to-refresh and page switches feel noticeably smoother.",
+      "Scroll and gestures are submitted per frame — high-frequency touch events no longer write to the DOM one by one, so long lists drop far fewer frames.",
+      "Background video decoding pauses whenever the app is hidden or Reduce Motion is on, and the startup preload of every weather video is gone — less heat and battery drain.",
+      "The home-screen widget now uses crisp vector weather icons instead of emoji, sharp at any resolution.",
+      "A new 4×2 widget layout, with gradient backgrounds that follow clear, cloudy, rain, snow, thunder, fog and night.",
+      "Widget self-refresh is more resilient: on network failure it keeps the previous data and reschedules instead of showing an empty tile."
+    ],
+    "ja": [
+      "120Hz 高リフレッシュレートに完全対応：アニメーションとスクロールを合成レイヤーに集約し、スワイプ・引っ張って更新・ページ切替が格段に滑らかに。",
+      "スクロールとジェスチャーをフレーム単位で反映：高頻度のタッチイベントが DOM を都度書き換えなくなり、長いリストでもカクつきにくくなりました。",
+      "アプリがバックグラウンドにある間や「モーションを減らす」有効時は背景動画のデコードを停止し、起動時の全動画の先読みも廃止。発熱と電池消費が減少します。",
+      "ホーム画面ウィジェットの絵文字をベクター天気アイコンに刷新。どの解像度でも鮮明です。",
+      "4×2 のウィジェットレイアウトを追加し、晴れ／曇り／雨／雪／雷／霧／夜に応じてグラデーション背景が切り替わります。",
+      "ウィジェットの自動更新がより堅牢に：通信失敗時は前回のデータを保持して再スケジュールし、空欄にならないようにしました。"
+    ],
+    "ko": [
+      "120Hz 고주사율 완전 지원: 애니메이션과 스크롤을 합성 레이어로 모아 스와이프, 당겨서 새로고침, 페이지 전환이 확실히 부드러워졌습니다.",
+      "스크롤과 제스처를 프레임 단위로 반영: 빈번한 터치 이벤트가 DOM을 매번 건드리지 않아 긴 목록에서도 끊김이 줄었습니다.",
+      "앱이 백그라운드이거나 \"동작 줄이기\"가 켜져 있으면 배경 동영상 디코딩을 멈추고, 시작 시 모든 날씨 동영상을 미리 받지 않아 발열과 배터리 소모가 줄었습니다.",
+      "홈 화면 위젯의 이모지를 벡터 날씨 아이콘으로 교체해 어떤 해상도에서도 선명합니다.",
+      "4×2 위젯 레이아웃을 추가하고 맑음/흐림/비/눈/천둥/안개/밤에 따라 그라데이션 배경이 바뀝니다.",
+      "위젯 자동 새로고침이 더 견고해졌습니다: 네트워크 실패 시 이전 데이터를 유지하고 다시 예약해 빈 칸이 생기지 않습니다."
+    ],
+    "fr": [
+      "Prise en charge complète du 120 Hz : animations et défilement restent sur le compositeur, les gestes et les changements de page sont nettement plus fluides.",
+      "Défilement et gestes soumis image par image : les événements tactiles fréquents n’écrivent plus le DOM un par un, les longues listes saccadent beaucoup moins.",
+      "Le décodage de la vidéo de fond se met en pause quand l’app est masquée ou que « Réduire les animations » est actif, et le préchargement de toutes les vidéos au démarrage a été supprimé — moins de chaleur et de batterie consommée.",
+      "Le widget d’accueil utilise désormais des icônes météo vectorielles au lieu des emoji, nettes à toutes les résolutions.",
+      "Nouvelle disposition 4×2, avec des fonds dégradés qui suivent le ciel dégagé, les nuages, la pluie, la neige, l’orage, le brouillard et la nuit.",
+      "L’actualisation autonome du widget est plus robuste : en cas d’échec réseau, il conserve les données précédentes et se replanifie au lieu d’afficher une tuile vide."
+    ],
+    "de": [
+      "Volle 120-Hz-Unterstützung: Animationen und Scrollen laufen auf dem Compositor, Wischen, Pull-to-Refresh und Seitenwechsel fühlen sich deutlich flüssiger an.",
+      "Scrollen und Gesten werden pro Frame übernommen: häufige Touch-Events schreiben nicht mehr einzeln ins DOM, lange Listen ruckeln viel seltener.",
+      "Das Dekodieren des Hintergrundvideos pausiert, wenn die App im Hintergrund ist oder „Bewegung reduzieren“ aktiv ist; das Vorladen aller Wettervideos beim Start entfällt – weniger Wärme und Akkuverbrauch.",
+      "Das Startbildschirm-Widget nutzt jetzt gestochen scharfe Vektor-Wettersymbole statt Emoji – in jeder Auflösung.",
+      "Neues 4×2-Layout, dessen Verlaufs-Hintergrund sich nach klar, bewölkt, Regen, Schnee, Gewitter, Nebel und Nacht richtet.",
+      "Die Selbstaktualisierung des Widgets ist robuster: Bei Netzfehlern bleiben die letzten Daten erhalten und der nächste Lauf wird neu geplant – kein leeres Kachelfeld mehr."
+    ],
+    "es": [
+      "Compatibilidad total con 120 Hz: las animaciones y el desplazamiento se quedan en el compositor, así que deslizar, tirar para actualizar y cambiar de página se sienten mucho más fluidos.",
+      "Desplazamiento y gestos se envían fotograma a fotograma: los eventos táctiles frecuentes ya no escriben el DOM uno a uno y las listas largas pierden muchas menos imágenes.",
+      "La decodificación del vídeo de fondo se pausa cuando la app está en segundo plano o «Reducir movimiento» está activo, y se eliminó la precarga de todos los vídeos al iniciar: menos calor y menos batería.",
+      "El widget de inicio usa ahora iconos meteorológicos vectoriales en lugar de emoji, nítidos en cualquier resolución.",
+      "Nuevo diseño 4×2, con fondos degradados que siguen a despejado, nublado, lluvia, nieve, tormenta, niebla y noche.",
+      "La actualización automática del widget es más robusta: si falla la red conserva los datos anteriores y se reprograma en vez de mostrar una tarjeta vacía."
+    ],
+    "pt": [
+      "Suporte total a 120 Hz: animações e deslocamento ficam no compositor, então arrastar, puxar para atualizar e trocar de página ficam bem mais fluidos.",
+      "Deslocamento e gestos são enviados quadro a quadro: eventos de toque frequentes não escrevem mais no DOM um a um, e listas longas perdem muito menos quadros.",
+      "A decodificação do vídeo de fundo é pausada quando o app está em segundo plano ou «Reduzir movimento» está ativo, e o pré-carregamento de todos os vídeos na abertura foi removido — menos aquecimento e consumo de bateria.",
+      "O widget da tela inicial agora usa ícones meteorológicos vetoriais em vez de emoji, nítidos em qualquer resolução.",
+      "Novo layout 4×2, com fundos em gradiente que acompanham céu limpo, nublado, chuva, neve, trovoada, nevoeiro e noite.",
+      "A atualização autónoma do widget é mais robusta: em falha de rede mantém os dados anteriores e reagenda em vez de mostrar um cartão vazio."
+    ],
+    "ru": [
+      "Полная поддержка 120 Гц: анимации и прокрутка остаются на композиторе, поэтому свайпы, обновление жестом и смена страниц заметно плавнее.",
+      "Прокрутка и жесты применяются покадрово: частые касания больше не пишут в DOM по одному, длинные списки почти не теряют кадры.",
+      "Декодирование фонового видео ставится на паузу, когда приложение скрыто или включено «Меньше анимации»; предзагрузка всех видео при запуске убрана — меньше нагрева и расхода батареи.",
+      "Виджет на главном экране теперь использует векторные иконки погоды вместо эмодзи и остаётся чётким при любом разрешении.",
+      "Новая раскладка 4×2 с градиентными фонами для ясно, облачно, дождь, снег, гроза, туман и ночь.",
+      "Самобновление виджета стало надёжнее: при сбое сети он сохраняет прошлые данные и переназначает запуск, а не показывает пустую плитку."
+    ]
+  }
+}
