@@ -1854,6 +1854,14 @@ body.city-dragging {
   max-width: 100%;
 }
 
+/* 同一个骨架组里只让第一个块闪光，其余保持静态灰块。
+   24 小时预报是 8 组 × 4 个、7 天预报是 3 组 × 5 个、今日详情是 3 组 × 3 个：
+   同组元素本来共用同一条时间轴、相位完全一致，扫光看上去是一整片，
+   关掉其余块的动画后画面几乎无差别，活动元素却从 59 个降到 20 个。 */
+.skeleton ~ .skeleton {
+  animation: none;
+}
+
 @keyframes skeletonShimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }

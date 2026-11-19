@@ -375,6 +375,29 @@ export async function initApp() {
   if (new URLSearchParams(location.search).get('fx') === 'off') {
     document.documentElement.dataset.fx = 'off';
   }
+  // 帧率角标：?fps=1 时在右下角显示实时 rAF 帧率。
+  // 三个壳（web / APK / exe）共用这份代码，所以真机上也能直接看，不必连电脑。
+  // 只在带参数时开启：这条 rAF 循环本身会让页面持续出帧，不能常驻。
+  if (new URLSearchParams(location.search).get('fps') === '1') {
+    const badge = document.createElement('div');
+    badge.style.cssText = 'position:fixed;right:8px;bottom:calc(env(safe-area-inset-bottom) + 5.5rem);'
+      + 'z-index:99999;font:600 12px/1 ui-monospace,monospace;padding:6px 8px;border-radius:8px;'
+      + 'background:rgba(0,0,0,.72);color:#7CFC9B;pointer-events:none';
+    badge.textContent = '-- fps';
+    document.body.appendChild(badge);
+    let frames = 0;
+    let last = performance.now();
+    const tick = (now) => {
+      frames += 1;
+      if (now - last >= 500) {
+        badge.textContent = Math.round((frames * 1000) / (now - last)) + ' fps';
+        frames = 0;
+        last = now;
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
   applyTheme();
   applyMotionPreference();
   applyBackgroundPreference();
@@ -3861,6 +3884,7 @@ function setupSyncGroup() {
  * 不再需要手写 HTML，也不会因为条目增加而撑高设置页。
  */
 const CHANGELOG_RELEASES = [
+  { version: '2.9.5', date: '2026-11-19', key: 'changelog.v295', kind: 'feature' },
   { version: '2.9.4', date: '2026-11-19', key: 'changelog.v294', kind: 'improve' },
   { version: '2.9.3', date: '2026-11-19', key: 'changelog.v293', kind: 'improve' },
   { version: '2.9.2', date: '2026-11-19', key: 'changelog.v292', kind: 'fix' },

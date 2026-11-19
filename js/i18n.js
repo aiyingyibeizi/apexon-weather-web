@@ -5825,6 +5825,60 @@ const V294_CHANGELOG = {
   ],
 };
 
+/** v2.9.5 —— 帧率角标、安卓显示模式锁定、桌面遮挡检测 */
+const V295_CHANGELOG = {
+  'zh-CN': [
+    '新增 ?fps=1 帧率角标，web、APK、exe 三个壳都能直接看实时帧率，不用连电脑。',
+    'Android 改用 preferredDisplayModeId 直接点名最高刷新率的显示模式，并在日志里打印系统实际给出的模式。',
+    '桌面端关闭窗口遮挡检测，窗口被压在其他窗口下面时不再停止绘制。',
+  ],
+  'zh-TW': [
+    '新增 ?fps=1 幀率角標，web、APK、exe 三個殼都能直接看即時幀率，不用連電腦。',
+    'Android 改用 preferredDisplayModeId 直接指定最高刷新率的顯示模式，並在日誌中印出系統實際給出的模式。',
+    '桌面端關閉視窗遮擋偵測，視窗被壓在其他視窗下面時不再停止繪製。',
+  ],
+  en: [
+    'Added a ?fps=1 frame-rate badge so the web, APK and desktop shells all show live FPS without a PC attached.',
+    'Android now pins the highest-refresh-rate display mode via preferredDisplayModeId and logs the mode the system actually grants.',
+    'The desktop shell disables window-occlusion detection, so it no longer stops painting while covered by another window.',
+  ],
+  ja: [
+    '?fps=1 のフレームレート表示を追加しました。web / APK / exe のどのシェルでも、PC につながなくても実測できます。',
+    'Android は preferredDisplayModeId で最高リフレッシュレートの表示モードを直接指定し、実際に適用されたモードをログに出力します。',
+    'デスクトップ版はウィンドウのオクルージョン検出を無効化し、他のウィンドウに覆われても描画を止めなくなりました。',
+  ],
+  ko: [
+    '?fps=1 프레임률 배지를 추가해 web·APK·exe 어느 셸에서든 PC 연결 없이 실시간 프레임률을 볼 수 있습니다.',
+    'Android는 preferredDisplayModeId로 최고 주사율 디스플레이 모드를 직접 지정하고, 시스템이 실제로 적용한 모드를 로그로 출력합니다.',
+    '데스크톱 앱은 창 가림 감지를 꺼서 다른 창에 가려져도 그리기를 멈추지 않습니다.',
+  ],
+  fr: [
+    'Ajout d’un badge ?fps=1 : les trois coques (web, APK, exe) affichent le taux de rafraîchissement réel sans passer par un PC.',
+    'Android fixe désormais le mode d’affichage le plus rapide via preferredDisplayModeId et journalise le mode réellement accordé par le système.',
+    'La coque bureau désactive la détection d’occlusion : elle ne cesse plus de dessiner quand une autre fenêtre la recouvre.',
+  ],
+  de: [
+    'Neues ?fps=1-Bildraten-Badge: Web-, APK- und Desktop-Hülle zeigen die echte Bildrate ohne PC.',
+    'Android legt den schnellsten Anzeigemodus jetzt über preferredDisplayModeId fest und protokolliert den tatsächlich gewährten Modus.',
+    'Die Desktop-Hülle deaktiviert die Fenster-Occlusion-Erkennung und zeichnet nicht mehr gestoppt, wenn ein anderes Fenster davor liegt.',
+  ],
+  es: [
+    'Nuevo indicador ?fps=1: las tres carcasas (web, APK y escritorio) muestran los fps reales sin conectar un PC.',
+    'Android fija ahora el modo de pantalla de mayor refresco con preferredDisplayModeId y registra el modo que el sistema concede realmente.',
+    'La versión de escritorio desactiva la detección de oclusión: deja de pausar el dibujado cuando otra ventana la tapa.',
+  ],
+  pt: [
+    'Novo indicador ?fps=1: as três carcaças (web, APK e desktop) mostram os fps reais sem ligar um PC.',
+    'O Android passa a fixar o modo de ecrã de maior taxa de atualização via preferredDisplayModeId e registra o modo que o sistema realmente concede.',
+    'A versão de desktop desativa a detecção de oclusão: deixa de parar de desenhar quando outra janela a cobre.',
+  ],
+  ru: [
+    'Добавлен индикатор ?fps=1: все три оболочки (web, APK, exe) показывают реальный FPS без подключения к ПК.',
+    'Android теперь задаёт режим экрана с максимальной частотой через preferredDisplayModeId и пишет в лог режим, который реально выдала система.',
+    'Настольная оболочка отключает определение перекрытия окна и больше не прекращает отрисовку, когда её закрывает другое окно.',
+  ],
+};
+
 const CHANGELOG_UI_STRINGS = {
   'zh-CN': { 'settings.changelogFix': '问题修复', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '体验优化' },
   'zh-TW': { 'settings.changelogFix': '問題修復', 'settings.changelogFeature': '新增功能', 'settings.changelogImprove': '體驗優化' },
@@ -5848,6 +5902,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v292'] = V292_CHANGELOG[lang] || V292_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v293'] = V293_CHANGELOG[lang] || V293_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v294'] = V294_CHANGELOG[lang] || V294_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v295'] = V295_CHANGELOG[lang] || V295_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 
