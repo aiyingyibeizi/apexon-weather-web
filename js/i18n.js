@@ -5881,6 +5881,60 @@ const V296_CHANGELOG = {
   ],
 };
 
+/** v2.9.7 —— 牵手文案重写 + 夜间暖化 */
+const V297_CHANGELOG = {
+  'zh-CN': [
+    '牵手换了说法：称呼、口令、等待和确认都改成日常语气，不再像设置向导，每天三句话的规则也讲清楚了。',
+    '夜里不再一片死黑：夜空换成深靛蓝配远处暖色灯火，月光和星点偏暖，暗色主题底色也提亮一点。',
+    '修好牵手快捷短语：之前点「天气 / 关照 / 想你」插进输入框的是一串英文键名，现在是真的句子。',
+  ],
+  'zh-TW': [
+    '牽手換了說法：稱呼、口令、等待和確認都改成日常語氣，不再像設定精靈，每天三句話的規則也講清楚了。',
+    '夜裡不再一片死黑：夜空換成深靛藍配遠處暖色燈火，月光和星點偏暖，暗色主題底色也提亮一點。',
+    '修好牽手快捷短語：之前點「天氣 / 關照 / 想你」插進輸入框的是一串英文鍵名，現在是真的句子。',
+  ],
+  en: [
+    'Hand in hand now speaks plainly: names, codes, waiting and confirming all use everyday words instead of setup-wizard language, and the three-lines-a-day rule is stated clearly.',
+    'Nights are no longer pitch black: the sky is deep indigo with warm distant lights, the moon and stars are warmer, and the dark theme background is a little lighter.',
+    'Fixed the hand-in-hand shortcuts: tapping Weather / Care / Miss used to insert an English key name into the input — now it inserts a real line.',
+  ],
+  ja: [
+    '「ハンド・イン・ハンド」の言い回しを全面的に見直しました。呼び名、合言葉、待つ／確認する場面を日常の言葉にし、1日3通のルールもわかりやすく書きました。',
+    '夜が真っ暗でなくなりました。夜空は深い藍色に遠くの暖かな灯り、月と星は暖色寄りになり、ダークテーマの背景も少し明るくしました。',
+    '定型文の不具合を修正しました。「天気／気づかい／会いたい」を押すと英語のキー名が入力されていたのを、実際の文章にしました。',
+  ],
+  ko: [
+    '「손잡기」의 표현을 전면 다듬었습니다. 호칭, 암호, 기다림과 확인을 일상적인 말투로 바꾸고 하루 세 마디 규칙도 쉽게 설명했습니다.',
+    '밤이 더 이상 새까맣지 않습니다. 밤하늘은 짙은 남색에 멀리 따뜻한 불빛, 달과 별은 따뜻한 색으로 바꾸고 어두운 테마 배경도 조금 밝혔습니다.',
+    '손잡기 빠른 문구를 고쳤습니다. 「날씨 / 걱정 / 보고 싶어」를 누르면 영어 키 이름이 입력되던 문제를 실제 문장으로 바꿨습니다.',
+  ],
+  fr: [
+    '« Main dans la main » parle désormais simplement : noms, codes, attente et confirmation en langage courant, et la règle des trois messages par jour est clairement expliquée.',
+    'Les nuits ne sont plus noires : ciel indigo profond avec des lumières chaudes au loin, lune et étoiles plus chaudes, fond du thème sombre un peu plus clair.',
+    'Correction des raccourcis : « Météo / Attention / Tu me manques » inséraient un nom de clé anglais dans le champ, ils insèrent maintenant une vraie phrase.',
+  ],
+  de: [
+    '„Hand in Hand“ spricht jetzt alltäglich: Namen, Codes, Warten und Bestätigen in normaler Sprache, und die Regel mit drei Nachrichten pro Tag ist klar erklärt.',
+    'Nächte sind nicht mehr pechschwarz: tief indigoblauer Himmel mit warmen Lichtern in der Ferne, Mond und Sterne wärmer, dunkler Hintergrund etwas heller.',
+    'Kurzbefehle repariert: „Wetter / Fürsorge / Vermisse dich“ fügten einen englischen Schlüsselnamen ein — jetzt einen echten Satz.',
+  ],
+  es: [
+    '«De la mano» ahora habla de forma natural: nombres, códigos, espera y confirmación con palabras cotidianas, y la regla de tres mensajes al día queda clara.',
+    'Las noches ya no son negras: cielo índigo profundo con luces cálidas al fondo, luna y estrellas más cálidas, y el fondo del tema oscuro algo más claro.',
+    'Arreglados los atajos: «Tiempo / Cuidado / Te extraño» insertaban un nombre de clave en inglés; ahora insertan una frase real.',
+  ],
+  pt: [
+    '«De mãos dadas» agora fala de forma simples: nomes, códigos, espera e confirmação em linguagem do dia a dia, e a regra de três mensagens por dia ficou clara.',
+    'As noites não são mais escuras: céu azul-índigo profundo com luzes quentes ao longe, lua e estrelas mais quentes, e o fundo do tema escuro um pouco mais claro.',
+    'Corrigidos os atalhos: «Tempo / Cuidado / Sinto sua falta» inseriam um nome de chave em inglês; agora inserem uma frase de verdade.',
+  ],
+  ru: [
+    '«Рука в руке» заговорил обычными словами: имена, коды, ожидание и подтверждение — без языка мастеров настройки, а правило трёх сообщений в день объяснено понятно.',
+    'Ночь больше не кромешная: небо глубокого индиго с тёплыми огнями вдали, луна и звёзды теплее, фон тёмной темы чуть светлее.',
+    'Исправлены быстрые фразы: «Погода / Забота / Скучаю» вставляли английское имя ключа, теперь вставляют настоящую фразу.',
+  ],
+};
+
 /** v2.9.5 —— 帧率角标、安卓显示模式锁定、桌面遮挡检测 */
 const V295_CHANGELOG = {
   'zh-CN': [
@@ -5960,6 +6014,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v294'] = V294_CHANGELOG[lang] || V294_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v295'] = V295_CHANGELOG[lang] || V295_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v296'] = V296_CHANGELOG[lang] || V296_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v297'] = V297_CHANGELOG[lang] || V297_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 

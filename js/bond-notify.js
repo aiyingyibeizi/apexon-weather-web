@@ -70,8 +70,8 @@ function template(kind, name, body) {
   const who = name || (isZh() ? '对方' : 'They');
   if (isZh()) {
     if (kind === 'weather') return { title: `${who} 提醒你看看天气`, body };
-    if (kind === 'care') return { title: `${who} 让你照顾好自己`, body };
-    return { title: `${who} 想跟你说一句`, body };
+    if (kind === 'care') return { title: `${who} 想叮嘱你一句`, body };
+    return { title: `${who} 想跟你说句话`, body };
   }
   if (kind === 'weather') return { title: `${who} has a weather note`, body };
   if (kind === 'care') return { title: `${who} wants you to take care`, body };

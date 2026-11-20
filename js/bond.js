@@ -42,21 +42,21 @@ function headers() {
  * 配对流程里所有失败都要让用户看见原因，否则「点了没反应」比报错更糟。
  */
 const ERROR_TEXT = {
-  not_found: () => P('配对码不存在或已过期', 'That code does not exist or has expired'),
-  already_bound: () => P('这个配对码已经被用掉了', 'This code has already been used'),
-  revoked: () => P('这个连接已经断开，请重新配对', 'This connection was closed — pair again'),
-  unauthorized: () => P('配对凭证失效了，请重新配对', 'The pairing credential expired — pair again'),
-  nothing_to_approve: () => P('对方还没提交申请，稍后再看', 'No request to approve yet'),
-  inactive: () => P('连接还在同步，等两三秒再试', 'Still syncing — try again in a moment'),
-  empty: () => P('先写一句话再发', 'Write something first'),
-  name_required: () => P('先写一个称呼', 'Give yourself a name first'),
+  not_found: () => P('没找到这串口令，检查一下，或者请 TA 重新生成一串', 'No such code — check it, or ask them to make a new one'),
+  already_bound: () => P('这串口令已经有人用过了', 'Someone has already used this code'),
+  revoked: () => P('这次连接已经结束了，可以重新来一次', 'This connection ended — you can start again'),
+  unauthorized: () => P('这边的凭证过期了，重新发一次就好', 'The credential expired — just start again'),
+  nothing_to_approve: () => P('TA 还没点头，过一会儿再看', 'They haven’t said yes yet'),
+  inactive: () => P('还差一点才连上，两三秒后再试', 'Almost connected — try again in a few seconds'),
+  empty: () => P('先写一句话再发', 'Write a line first'),
+  name_required: () => P('先写个名字，让 TA 知道是你', 'Add a name so they know it’s you'),
 };
 
 export function describeBondError(err) {
   const code = String((err && err.message) || '').trim();
   const fn = ERROR_TEXT[code];
   if (fn) return fn();
-  return P('操作没成功，请稍后再试', 'That did not work — try again later');
+  return P('这次没成功，网络好一点再试', 'That didn’t work — try again when the network is steadier');
 }
 
 async function call(action, payload, timeout = 8000) {
@@ -242,7 +242,7 @@ export async function revokeBond(bondId) {
 
 export async function sendMessage(bondId, kind, body) {
   if (!canSend()) {
-    return { ok: false, reason: 'limit', text: P('今天已经说过三句了，明天再聊', 'That is three messages today — talk tomorrow') };
+    return { ok: false, reason: 'limit', text: P('今天三句都说完了，剩下的明天再说吧', 'That’s three today — more tomorrow') };
   }
   const bond = getBonds().find((b) => b.id === bondId);
   if (!bond || bond.status !== 'active') {

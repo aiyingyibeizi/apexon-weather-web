@@ -72,7 +72,7 @@ const BT = {
   'tool.people': ['牵挂的人', '牽掛的人', 'People'],
   'tool.peopleDesc': ['只看天气、不打扰的单向牵挂', 'One-way care, no notifications', 'One-way care, no notifications'],
   'tool.bond': ['牵手', '牽手', 'Hand in hand'],
-  'tool.bondDesc': ['双方同意后互递一句话', 'Both agree, then exchange a line', 'Both agree, then exchange a line'],
+  'tool.bondDesc': ['两个人都点头，才看得见彼此的天气', '兩個人都點頭，才看得見彼此的天氣', 'Only if you both agree'],
   'tool.letters': ['写给未来', '寫給未來', 'Letters to later'],
   'tool.lettersDesc': ['此刻的天气与一句话，留给以后的自己', '此刻的天氣與一句話，留給以後的自己', 'This weather and a line, for later'],
   'tool.colors': ['天气色卡', '天氣色卡', 'Weather palette'],
@@ -101,40 +101,52 @@ const BT = {
   'climate.gddHint': ['按 5°C 基准从 2 月 1 日累计，只是物候估算', '按 5°C 基準從 2 月 1 日累計，只是物候估算', 'Accumulated from 5°C since Feb 1 — a rough phenology estimate'],
   'climate.days': ['天记录', '天記錄', 'day records'],
   'climate.heirloom': ['把这份记录交给以后', '把這份記錄交給以後', 'Keep this for later'],
-  'bond.create': ['生成邀请码', '產生邀請碼', 'Create invite'],
-  'bond.join': ['输入邀请码', '輸入邀請碼', 'Enter code'],
-  'bond.codeHint': ['把这 6 位给对面的人，24 小时内有效', '把這 6 位給對面的人，24 小時內有效', 'Give these 6 to them, valid for 24h'],
+  'bond.intro': ['不用加好友，也不用留手机号。你给 TA 一串六位口令，TA 用这串找过来，你点头，就通了。', '不用加好友，也不用留手機號。你給 TA 一串六位口令，TA 用這串找過來，你點頭，就通了。', 'No friend requests, no phone numbers. You give them six characters, they come in with it, you say yes — that’s it.'],
+  'bond.create': ['生成一串口令', '產生一串口令', 'Make a code'],
+  'bond.join': ['用 TA 的口令', '用 TA 的口令', 'Use their code'],
+  'bond.codeLabel': ['TA 给你的六位口令', 'TA 給你的六位口令', 'The six characters they gave you'],
+  'bond.codeReady': ['口令在这儿', '口令在這兒', 'Here’s your code'],
+  'bond.codeHint': ['把这六位念给 TA，或者直接发给 TA。24 小时内有效。', '把這六位唸給 TA，或直接傳給 TA。24 小時內有效。', 'Read these six to them or send them over. Good for 24 hours.'],
+  'bond.name': ['让 TA 怎么叫你', '讓 TA 怎麼叫你', 'What should they call you'],
+  'bond.nameHint': ['最多八个字，会显示给 TA 看', '最多八個字，會顯示給 TA 看', 'Up to 8 characters, shown to them'],
   'bond.copy': ['复制', '複製', 'Copy'],
   'bond.copied': ['已复制', '已複製', 'Copied'],
-  'bond.waiting': ['等对方输入', '等對方輸入', 'Waiting for them'],
-  'bond.pending': ['有人想和你牵手', '有人想和你牽手', 'Someone wants to connect'],
-  'bond.approve': ['同意', '同意', 'Approve'],
-  'bond.reject': ['拒绝', '拒絕', 'Decline'],
-  'bond.active': ['已连接', '已連接', 'Connected'],
-  'bond.revoke': ['断开连接', '斷開連接', 'Disconnect'],
-  'bond.revokeHint': ['断开后双方记录立即删除，不可恢复', '斷開後雙方記錄立即刪除，不可復原', 'Both sides are deleted immediately'],
+  'bond.waiting': ['等 TA 过来', '等 TA 過來', 'Waiting for them'],
+  'bond.pending': ['TA 想和你一起看天', 'TA 想和你一起看天', 'They want to share the sky with you'],
+  'bond.approve': ['好呀', '好呀', 'Sure'],
+  'bond.reject': ['这次先不了', '這次先不了', 'Not this time'],
+  'bond.active': ['已经连上了', '已經連上了', 'Connected'],
+  'bond.revoke': ['先到这里', '先到這裡', 'End this'],
+  'bond.revokeTitle': ['要结束这次连接吗', '要結束這次連接嗎', 'End this connection?'],
+  'bond.revokeHint': ['结束后，你们说过的话会一起消失，也找不回来。', '結束後，你們說過的話會一起消失，也找不回來。', 'Your messages disappear with it, and cannot be recovered.'],
+  'bond.check': ['看看 TA 答应了没', '看看 TA 答應了沒', 'Check if they’ve said yes'],
+  'bond.rule': ['每天三句话，一句不超过 40 字', '每天三句話，一句不超過 40 字', 'Three lines a day, 40 characters each'],
   'bond.say': ['说一句', '說一句', 'Say a line'],
-  'bond.fine': ['我挺好', '我挺好', 'I’m fine'],
-  'bond.remaining': ['今天还能说', '今天還能說', 'Left today'],
-  'bond.lines': ['句', '句', ''],
-  'bond.limit': ['今天已经说过三句了，明天再聊', '今天已經說過三句了，明天再聊', 'Three lines today already'],
-  'bond.tpl.weather': ['天气', '天氣', 'Weather'],
-  'bond.tpl.care': ['关照', '關照', 'Care'],
-  'bond.tpl.warm': ['想你', '想你', 'Warm'],
-  'bond.empty': ['还没有连接', '還沒有連接', 'Not connected yet'],
-  'bond.sendOk': ['已经送到', '已經送到', 'Sent'],
-  'bond.sendFail': ['网络没通，这句话没发出去', '網路沒通，這句話沒發出去', 'It did not send'],
-  'bond.pendingGuest': ['想与你牵手', '想與你牽手', 'wants to connect'],
-  'bond.waitConfirm': ['等对方确认', '等對方確認', 'Waiting for confirmation'],
-  'bond.thread': ['消息', '訊息', 'Messages'],
-  'bond.noMsg': ['还没有消息', '還沒有訊息', 'No messages yet'],
-  'bond.codeFail': ['邀请码不正确或已失效', '邀請碼不正確或已失效', 'Code invalid or expired'],
-  'bond.joined': ['已发送请求，等对方确认', '已送出請求，等對方確認', 'Request sent — awaiting approval'],
-  'bond.created': ['邀请码已生成', '邀請碼已產生', 'Invite created'],
-  'bond.copyFail': ['复制没成功，长按上面的码手动复制', '複製沒成功，長按上面的碼手動複製', 'Copy failed — long-press the code to copy it'],
-  'bond.needCity': ['等定位或天气加载完成再试', '等定位或天氣載入完成再試', 'Wait for your city to load first'],
-  'bond.needName': ['先写一个称呼', '先寫一個稱呼', 'Give yourself a name first'],
-  'bond.revoked': ['对方已经断开了连接', '對方已經斷開了連接', 'They disconnected'],
+  'bond.sayPlaceholder': ['写一句给 TA（40 字以内）', '寫一句給 TA（40 字以內）', 'One line for them (40 characters)'],
+  'bond.fine': ['我挺好的', '我挺好的', 'I’m okay'],
+  'bond.remaining': ['今天还能说', '今天還能說', 'You can still say'],
+  'bond.lines': ['句', '句', 'today'],
+  'bond.limit': ['今天三句都说完了，剩下的明天再说吧', '今天三句都說完了，剩下的明天再說吧', 'That’s three today — more tomorrow'],
+  'bond.tpl.weather': ['聊天气', '聊天氣', 'Weather'],
+  'bond.tpl.care': ['叮嘱一句', '叮囑一句', 'A reminder'],
+  'bond.tpl.warm': ['说句想你', '說句想你', 'Say you miss them'],
+  'bond.line.umbrella': ['今天有雨，出门记得带伞', '今天有雨，出門記得帶傘', 'Rain today — take an umbrella'],
+  'bond.line.sleep': ['别熬太晚，早点睡', '別熬太晚，早點睡', 'Don’t stay up too late'],
+  'bond.line.miss': ['有点想你了', '有點想你了', 'Thinking of you'],
+  'bond.empty': ['还没和谁连上。你可以先给 TA 一串口令。', '還沒和誰連上。你可以先給 TA 一串口令。', 'Nobody yet. You can give them a code first.'],
+  'bond.sendOk': ['送到了', '送到了', 'Sent'],
+  'bond.sendFail': ['网络没接上，这句没送出去，过会儿再试', '網路沒接上，這句沒送出去，過會兒再試', 'The network dropped — it did not send'],
+  'bond.pendingGuest': ['想和你一起看天', '想和你一起看天', 'wants to share the sky with you'],
+  'bond.waitConfirm': ['等 TA 点个头', '等 TA 點個頭', 'Waiting for them to say yes'],
+  'bond.thread': ['你们说的话', '你們說的話', 'Your messages'],
+  'bond.noMsg': ['还没说什么。第一句可以很短。', '還沒說什麼。第一句可以很短。', 'Nothing yet. The first line can be short.'],
+  'bond.codeFail': ['这串口令不对，或者已经过期了', '這串口令不對，或者已經過期了', 'That code is wrong or expired'],
+  'bond.joined': ['已经告诉 TA 了，等 TA 点个头', '已經告訴 TA 了，等 TA 點個頭', 'They’ve been told — waiting for their yes'],
+  'bond.created': ['口令好了，交给 TA 吧', '口令好了，交給 TA 吧', 'Ready — hand it to them'],
+  'bond.copyFail': ['没复制上，长按这六位手动复制', '沒複製上，長按這六位手動複製', 'Copy failed — long-press the six to copy'],
+  'bond.needCity': ['等定位好、天气出来再试', '等定位好、天氣出來再試', 'Wait until your city and weather load'],
+  'bond.needName': ['先写个名字，让 TA 知道是你', '先寫個名字，讓 TA 知道是你', 'Add a name so they know it’s you'],
+  'bond.revoked': ['TA 结束了这次连接', 'TA 結束了這次連接', 'They ended this connection'],
   'common.close': ['关闭', '關閉', 'Close'],
   'common.off': ['已关闭', '已關閉', 'Off'],
   'common.refreshed': ['已刷新', '已重新整理', 'Refreshed'],
@@ -212,10 +224,10 @@ const BT = {
   'care.undo': ['已删除', '已刪除', 'Deleted'],
   'care.undoBtn': ['撤销', '撤銷', 'Undo'],
   'care.undoDone': ['已恢复', '已恢復', 'Restored'],
-  'bond.keep': ['对话只保留 30 天', '對話只保留 30 天', 'Messages are kept for 30 days'],
-  'bond.autoSent': ['提醒已送到', '提醒已送到', 'Alert sent'],
-  'bond.autoFail': ['提醒暂时发不出去，天气照常', '提醒暫時送不出去，天氣照常', 'Alerts are offline — weather is unaffected'],
-  'bond.autoPrefix': ['提醒你：', '提醒你：', 'reminds you: '],
+  'bond.keep': ['这些话只保留 30 天，之后自动消失', '這些話只保留 30 天，之後自動消失', 'Messages stay for 30 days, then vanish'],
+  'bond.autoSent': ['提醒送到了', '提醒送到了', 'Reminder sent'],
+  'bond.autoFail': ['提醒没送出去，天气照常看', '提醒沒送出去，天氣照常看', 'Reminder not sent — weather is fine'],
+  'bond.autoPrefix': ['让我和你说一声：', '讓我和你說一聲：', 'Just a note: '],
 
   /* ---------------- 2.7.6 · 天气相册（G1 类型的替代物） ---------------- */
   'tool.album': ['天气相册', '天氣相冊', 'Weather album'],
@@ -1499,12 +1511,13 @@ function renderBondTool() {
   body.innerHTML = `
     <div class="card">
       <div class="card__title">${esc(bt('tool.bond'))}</div>
+      <p class="bp-line--dim">${esc(bt('bond.intro'))}</p>
       ${bonds.length ? bonds.map(bondRowHTML).join('') : `<p class="bp-line--dim">${esc(bt('bond.empty'))}</p>`}
       <div class="bp-actions">
         <button type="button" class="bp-btn bp-btn--primary" data-bp="bond-create">${esc(bt('bond.create'))}</button>
         <button type="button" class="bp-btn" data-bp="bond-join">${esc(bt('bond.join'))}</button>
       </div>
-      <p class="bp-line--dim" style="margin-top:0.75rem">${esc(bt('bond.limit'))} · ${BOND.remainingToday()}</p>
+      <p class="bp-line--dim" style="margin-top:0.75rem">${esc(bt('bond.rule'))} · ${BOND.remainingToday()} ${esc(bt('bond.lines'))}</p>
     </div>
     ${active.length ? `
       <div class="card">
@@ -1527,9 +1540,10 @@ function openBondCreate() {
     title: bt('bond.create'),
     html: `
       <div class="bp-field">
-        <label class="bp-field__label" for="bp-bond-name">${esc(bt('care.name'))}</label>
+        <label class="bp-field__label" for="bp-bond-name">${esc(bt('bond.name'))}</label>
         <input id="bp-bond-name" class="bp-input" maxlength="8" value="">
       </div>
+      <p class="bp-line--dim">${esc(bt('bond.nameHint'))}</p>
       <p class="bp-line--dim">${esc(state.currentCity?.name || '')}</p>
       <div class="bp-actions"><button type="button" class="bp-btn bp-btn--primary" data-do-create>${esc(bt('bond.create'))}</button></div>
     `,
@@ -1545,7 +1559,7 @@ function openBondCreate() {
       const code = String(data.code || '');
       const codeHtml = `<div class="bp-code">${Array.from(code).map((c) => `<span>${esc(c)}</span>`).join('')}</div>`;
       const wrap = openSheet({
-        title: bt('bond.create'),
+        title: bt('bond.codeReady'),
         html: `
           ${codeHtml}
           <p class="bp-line--dim" style="text-align:center">${esc(bt('bond.codeHint'))}</p>
@@ -1573,11 +1587,11 @@ function openBondJoin() {
     title: bt('bond.join'),
     html: `
       <div class="bp-field">
-        <label class="bp-field__label" for="bp-join-code">${esc(bt('bond.join'))}</label>
+        <label class="bp-field__label" for="bp-join-code">${esc(bt('bond.codeLabel'))}</label>
         <input id="bp-join-code" class="bp-input bp-input--code" maxlength="6" autocomplete="off" spellcheck="false">
       </div>
       <div class="bp-field">
-        <label class="bp-field__label" for="bp-join-name">${esc(bt('care.name'))}</label>
+        <label class="bp-field__label" for="bp-join-name">${esc(bt('bond.name'))}</label>
         <input id="bp-join-name" class="bp-input" maxlength="8">
       </div>
       <div class="bp-actions"><button type="button" class="bp-btn bp-btn--primary" data-do-join>${esc(bt('bond.join'))}</button></div>
@@ -1687,7 +1701,7 @@ async function openBondDetail(bondId) {
       <div class="bp-code">${Array.from(String(cur.code || '')).map((c) => `<span>${esc(c)}</span>`).join('')}</div>
       <p class="bp-line--dim" style="text-align:center">${esc(bt('bond.waitConfirm'))}</p>
       <div class="bp-actions" style="justify-content:center">
-        <button type="button" class="bp-btn" data-refresh>${esc(bt('bond.active'))} ⟳</button>
+        <button type="button" class="bp-btn" data-refresh>${esc(bt('bond.check'))} ⟳</button>
       </div>
     `,
   }).addEventListener('click', async (e) => {
@@ -1715,17 +1729,17 @@ function openThreadSheet(bondId) {
         </div>`).join('')
       : `<p class="bp-line--dim">${esc(bt('bond.noMsg'))}</p>`;
     const tpls = [
-      ['weather', 'msg.tpl.umbrella'],
-      ['care', 'msg.tpl.sleep'],
-      ['warm', 'msg.tpl.miss'],
+      ['weather', 'bond.line.umbrella'],
+      ['care', 'bond.line.sleep'],
+      ['warm', 'bond.line.miss'],
     ];
     return `
       <div class="bp-thread">${thread}</div>
       <div class="bp-chips" style="margin:0.75rem 0">
-        ${tpls.map(([kind, key]) => `<button type="button" class="bp-btn" data-tpl="${kind}" data-tpl-text="${esc(t(key))}">${esc(bt(`bond.tpl.${kind}`))}</button>`).join('')}
+        ${tpls.map(([kind, key]) => `<button type="button" class="bp-btn" data-tpl="${kind}" data-tpl-text="${esc(bt(key))}">${esc(bt(`bond.tpl.${kind}`))}</button>`).join('')}
       </div>
       <div class="bp-chips">
-        <input id="bp-msg-input" class="bp-input" maxlength="40" placeholder="${esc(bt('bond.say'))}" style="flex:1 1 auto">
+        <input id="bp-msg-input" class="bp-input" maxlength="40" placeholder="${esc(bt('bond.sayPlaceholder'))}" style="flex:1 1 auto">
         <button type="button" class="bp-btn bp-btn--primary" data-send>${esc(bt('bond.say'))}</button>
       </div>
       <p class="bp-line--dim" style="margin-top:0.5rem">${esc(bt('bond.remaining'))} ${BOND.remainingToday()} ${esc(bt('bond.lines'))}</p>
@@ -2798,7 +2812,7 @@ function setupDelegates() {
     if (revoke) {
       const id = revoke.dataset.bondRevoke;
       const overlay = openSheet({
-        title: bt('bond.revoke'),
+        title: bt('bond.revokeTitle'),
         html: `
           <p class="bp-line">${esc(bt('bond.revokeHint'))}</p>
           <div class="bp-actions">
