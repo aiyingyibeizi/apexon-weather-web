@@ -107,8 +107,8 @@ const BT = {
   'bond.codeLabel': ['TA 给你的六位口令', 'TA 給你的六位口令', 'The six characters they gave you'],
   'bond.codeReady': ['口令在这儿', '口令在這兒', 'Here’s your code'],
   'bond.codeHint': ['把这六位念给 TA，或者直接发给 TA。24 小时内有效。', '把這六位唸給 TA，或直接傳給 TA。24 小時內有效。', 'Read these six to them or send them over. Good for 24 hours.'],
-  'bond.name': ['你是 TA 的', '你是 TA 的', 'You are their'],
-  'bond.nameHint': ['选一个，或者自己写。TA 那边看到的称呼，就是它。', '選一個，或自己寫。TA 那邊看到的稱呼，就是它。', 'Pick one or type your own — this is how they will see you.'],
+  'bond.name': ['你管 TA 叫', '你管 TA 叫', 'You call them'],
+  'bond.nameHint': ['只是你自己的备注，只有你这边看得到。', '只是你自己的備註，只有你這邊看得到。', 'Your own note — only you can see it.'],
   'bond.nameCustom': ['或者自己写一个称呼', '或者自己寫一個稱呼', 'Or type your own'],
   'bond.rel.dad': ['爸爸', '爸爸', 'Dad'],
   'bond.rel.mom': ['妈妈', '媽媽', 'Mom'],
@@ -117,8 +117,7 @@ const BT = {
   'bond.rel.friend': ['朋友', '朋友', 'Friend'],
   'bond.rel.partner': ['伴侣', '伴侶', 'Partner'],
   'bond.you': ['你', '你', 'You'],
-  'bond.youAre': ['你是', '你是', 'You are'],
-  'bond.threadWith': ['和', '和', 'With'],
+  'bond.peer': ['对方', '對方', 'Them'],
   'bond.copy': ['复制', '複製', 'Copy'],
   'bond.copied': ['已复制', '已複製', 'Copied'],
   'bond.waiting': ['等 TA 过来', '等 TA 過來', 'Waiting for them'],
@@ -155,7 +154,7 @@ const BT = {
   'bond.created': ['口令好了，交给 TA 吧', '口令好了，交給 TA 吧', 'Ready — hand it to them'],
   'bond.copyFail': ['没复制上，长按这六位手动复制', '沒複製上，長按這六位手動複製', 'Copy failed — long-press the six to copy'],
   'bond.needCity': ['等定位好、天气出来再试', '等定位好、天氣出來再試', 'Wait until your city and weather load'],
-  'bond.needName': ['先写个名字，让 TA 知道是你', '先寫個名字，讓 TA 知道是你', 'Add a name so they know it’s you'],
+  'bond.needName': ['先写一个你对 TA 的称呼', '先寫一個你對 TA 的稱呼', 'Add what you call them'],
   'bond.revoked': ['TA 结束了这次连接', 'TA 結束了這次連接', 'They ended this connection'],
   'common.close': ['关闭', '關閉', 'Close'],
   'common.off': ['已关闭', '已關閉', 'Off'],
@@ -1493,6 +1492,11 @@ function openSendSheet(personId) {
 
 /* --------------------------------------------------- 双向牵手（UI） */
 
+/** 怎么称呼对方，由自己备注决定；旧数据没有备注时才回退到服务器带回的名字 */
+function bondLabelOf(bond) {
+  return bond.peerLabel || bond.peerName || bt('bond.peer');
+}
+
 function bondRowHTML(bond) {
   const unread = BOND.unreadCount(bond.id);
   const stateText = bond.status === 'active'
@@ -1500,8 +1504,8 @@ function bondRowHTML(bond) {
     : bond.status === 'pending'
       ? bt('bond.waitConfirm')
       : bt('bond.waiting');
-  // 还没连上时没有对方的称呼，显示功能名而不是把六位口令当成名字
-  const label = bond.peerName || bt('tool.bond');
+  // 还没连上时没有对方的备注，显示「对方」而不是把六位口令当成名字
+  const label = bondLabelOf(bond);
   const state = bond.status === 'waiting' && bond.code
     ? `${stateText} · ${bond.code}`
     : stateText;
@@ -1539,7 +1543,7 @@ function renderBondTool() {
         <div class="card__title">${esc(bt('bond.thread'))}</div>
         ${active.map((b) => `
           <div class="bp-actions">
-            <button type="button" class="bp-btn" data-bond-thread="${esc(b.id)}">${esc(b.peerName || bt('bond.thread'))}</button>
+            <button type="button" class="bp-btn" data-bond-thread="${esc(b.id)}">${esc(bondLabelOf(b))}</button>
             <button type="button" class="bp-btn" data-bond-fine="${esc(b.id)}">${esc(bt('bond.fine'))}</button>
             <button type="button" class="bp-btn bp-btn--danger" data-bond-revoke="${esc(b.id)}">${esc(bt('bond.revoke'))}</button>
           </div>
@@ -1551,7 +1555,7 @@ function renderBondTool() {
 
 const BOND_REL_KEYS = ['dad', 'mom', 'son', 'daughter', 'friend', 'partner'];
 
-/** 称呼是「你在这段关系里的身份」，不是对方的名字：爸爸选爸爸，儿子选儿子，两边各自看到对方 */
+/** 称呼是「我管 TA 叫什么」，只存在本机：我备注爸爸，我这边就显示爸爸；对方备注什么，对方那边显示什么 */
 function bondNameFieldHTML(inputId) {
   return `
     <div class="bp-field">
@@ -1703,7 +1707,7 @@ async function openBondDetail(bondId) {
     const overlay = openSheet({
       title: bt('bond.pending'),
       html: `
-        <p class="bp-line">${esc(guest.name || '')} · ${esc(guest.city?.name || '')}</p>
+        <p class="bp-line">${esc(bondLabelOf(cur))} · ${esc(guest.city?.name || '')}</p>
         <p class="bp-line--dim">${esc(bt('bond.pendingGuest'))}</p>
         <div class="bp-actions">
           <button type="button" class="bp-btn bp-btn--primary" data-approve>${esc(bt('bond.approve'))}</button>
@@ -1763,7 +1767,7 @@ function openThreadSheet(bondId) {
 
   const build = () => {
     const list = BOND.getMessages(bondId);
-    const peer = bond.peerName || bt('tool.bond');
+    const peer = bondLabelOf(bond);
     const thread = list.length
       ? list.map((m) => {
         const who = m.from === 'me' ? bt('bond.you') : peer;
@@ -1794,11 +1798,7 @@ function openThreadSheet(bondId) {
     `;
   };
 
-  const peer = bond.peerName || bt('tool.bond');
-  const titleParts = [];
-  if (bond.myName) titleParts.push(`${bt('bond.youAre')} ${bond.myName}`);
-  titleParts.push(`${bt('bond.threadWith')} ${peer}`);
-  const overlay = openSheet({ title: titleParts.join(' · '), html: build() });
+  const overlay = openSheet({ title: bondLabelOf(bond), html: build() });
   overlay.addEventListener('click', async (e) => {
     const tpl = e.target.closest('[data-tpl]');
     if (tpl) {

@@ -5935,6 +5935,60 @@ const V297_CHANGELOG = {
   ],
 };
 
+/** v2.9.9 —— 牵手称呼改为自己的备注 */
+const V299_CHANGELOG = {
+  'zh-CN': [
+    '「牵手」的称呼改成你自己备注：你管 TA 叫爸爸，你这边就显示爸爸；TA 管你叫儿子，TA 那边显示儿子，两边互不影响。',
+    '聊天页标题就是你给 TA 的备注，消息前面标「你」或这个备注，不会再出现反过来的名字。',
+    '备注只存在你自己的手机上，不会传给对方。',
+  ],
+  'zh-TW': [
+    '「牽手」的稱呼改成你自己備註：你管 TA 叫爸爸，你這邊就顯示爸爸；TA 管你叫兒子，TA 那邊顯示兒子，兩邊互不影響。',
+    '聊天頁標題就是你給 TA 的備註，訊息前面標「你」或這個備註，不會再出現反過來的名字。',
+    '備註只存在你自己的手機上，不會傳給對方。',
+  ],
+  'en': [
+    'Hand in hand now uses your own label for the other person: call them Dad and you see Dad; if they call you Son, they see Son — each side keeps its own.',
+    'The thread title is your label, and each message is marked “You” or that label — no more reversed names.',
+    'The label stays on your device and is never sent to the other side.',
+  ],
+  'ja': [
+    '「ハンド・イン・ハンド」の呼び名は、自分が相手をどう呼ぶかのメモになりました。相手を「お父さん」と呼べば自分側は「お父さん」、相手があなたを「息子」と呼べば相手側は「息子」です。',
+    'スレッドの見出しはそのメモになり、各メッセージには「あなた」かその呼び名が付きます。逆さまの名前は出ません。',
+    'メモは自分の端末だけに保存され、相手には送られません。',
+  ],
+  'ko': [
+    '「손잡기」의 호칭은 내가 상대를 부르는 이름으로 바뀌었습니다. 상대를 「아빠」라고 부르면 내 쪽은 「아빠」, 상대가 나를 「아들」이라고 부르면 상대 쪽은 「아들」입니다.',
+    '대화 제목은 그 호칭이 되고, 각 메시지 앞에는 「나」 또는 그 호칭이 붙습니다. 거꾸로 된 이름은 나오지 않습니다.',
+    '호칭은 내 기기에만 저장되고 상대에게 전송되지 않습니다.',
+  ],
+  'fr': [
+    "Dans « Main dans la main », le nom est votre propre note : appelez l'autre « Papa » et vous voyez Papa ; s'il vous appelle « Fils », il voit Fils — chacun garde la sienne.",
+    'Le titre du fil est cette note, et chaque message porte « Vous » ou ce nom — plus de noms inversés.',
+    "La note reste sur votre appareil et n'est jamais envoyée à l'autre.",
+  ],
+  'de': [
+    'In „Hand in Hand“ ist der Name deine eigene Notiz: Nennst du die andere Person „Papa“, siehst du Papa; nennt sie dich „Sohn“, sieht sie Sohn — jede Seite behält ihre eigene.',
+    'Der Verlaufstitel ist diese Notiz, und jede Nachricht trägt „Du“ oder diesen Namen — keine vertauschten Namen mehr.',
+    'Die Notiz bleibt auf deinem Gerät und wird nie an die andere Seite gesendet.',
+  ],
+  'es': [
+    'En «De la mano» el nombre es tu propia nota: si llamas «Papá» a la otra persona, ves Papá; si te llama «Hijo», ve Hijo — cada lado guarda el suyo.',
+    'El título del hilo es esa nota y cada mensaje lleva «Tú» o ese nombre — se acabaron los nombres invertidos.',
+    'La nota se queda en tu dispositivo y nunca se envía al otro lado.',
+  ],
+  'pt': [
+    'Em «De mãos dadas» o nome é a sua própria nota: chame a outra pessoa de «Pai» e você vê Pai; se ela te chamar de «Filho», ela vê Filho — cada lado guarda o seu.',
+    'O título da conversa é essa nota e cada mensagem leva «Você» ou esse nome — chega de nomes invertidos.',
+    'A nota fica no seu aparelho e nunca é enviada para o outro lado.',
+  ],
+  'ru': [
+    'В «Рука в руке» имя — это ваша собственная заметка: называете другого «Папа» — видите «Папа»; он называет вас «Сын» — он видит «Сын». У каждой стороны своё.',
+    'Заголовок переписки — эта заметка, а каждое сообщение подписано «Вы» или этим именем. Перевёрнутых имён больше нет.',
+    'Заметка хранится только на вашем устройстве и не отправляется другой стороне.',
+  ],
+};
+
 /** v2.9.8 —— 牵手称呼按关系来 */
 const V298_CHANGELOG = {
   'zh-CN': [
@@ -6070,6 +6124,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v296'] = V296_CHANGELOG[lang] || V296_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v297'] = V297_CHANGELOG[lang] || V297_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v298'] = V298_CHANGELOG[lang] || V298_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v299'] = V299_CHANGELOG[lang] || V299_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 
