@@ -5935,6 +5935,60 @@ const V297_CHANGELOG = {
   ],
 };
 
+/** v2.9.8 —— 牵手称呼按关系来 */
+const V298_CHANGELOG = {
+  'zh-CN': [
+    '牵手称呼改成「你是 TA 的谁」：爸爸、妈妈、儿子、女儿、朋友、伴侣任选，也能自己写；每条消息都会标上是谁说的。',
+    '还没连上时不再把六位口令当成名字显示，口令移到状态那一行。',
+    '聊天页顶部会写清「你是 爸爸 · 和 儿子」，两边不会再弄混。',
+  ],
+  'zh-TW': [
+    '牽手稱呼改成「你是 TA 的誰」：爸爸、媽媽、兒子、女兒、朋友、伴侶任選，也能自己寫；每條訊息都會標上誰說的。',
+    '還沒連上時不再把六位口令當成名字顯示，口令移到狀態那一行。',
+    '聊天頁頂部會寫清「你是 爸爸 · 和 兒子」，兩邊不會再弄混。',
+  ],
+  en: [
+    'Hand-in-hand names now say who you are to them: Dad, Mom, Son, Daughter, Friend, Partner, or your own word — and every message is labelled with that name.',
+    'A pending connection no longer shows the six-character code as if it were a name; the code moved to the status line.',
+    'The chat header now reads "You are Dad · With Son", so the two sides cannot be mixed up.',
+  ],
+  ja: [
+    '呼び名が「あなたは相手の誰か」になりました。お父さん、お母さん、息子、娘、友だち、パートナーから選ぶか自由入力。メッセージにはそれぞれの呼び名が付きます。',
+    'まだつながっていないとき、6桁の合言葉が名前のように表示されなくなり、状態の行に移りました。',
+    'チャット上部に「あなたは お父さん · 相手は 息子」と表示され、どちら側か迷いません。',
+  ],
+  ko: [
+    '호칭이 「내가 상대에게 누구인지」로 바뀌었습니다. 아빠, 엄마, 아들, 딸, 친구, 연인 중에서 고르거나 직접 쓸 수 있고, 메시지마다 그 호칭이 붙습니다.',
+    '아직 연결되지 않았을 때 6자리 암호를 이름처럼 보여주지 않고, 상태 줄에 따로 표시합니다.',
+    '채팅 상단에 「나는 아들 · 상대는 아빠」처럼 적혀 어느 쪽인지 헷갈리지 않습니다.',
+  ],
+  fr: [
+    'Les noms décrivent maintenant qui vous êtes pour l’autre : Papa, Maman, Fils, Fille, Ami, Partenaire, ou votre propre mot — et chaque message porte ce nom.',
+    'Une connexion en attente n’affiche plus le code à six caractères comme un nom ; il passe sur la ligne d’état.',
+    'L’en-tête du chat indique « Vous êtes Papa · Avec Fils », les deux côtés ne se confondent plus.',
+  ],
+  de: [
+    'Die Namen sagen jetzt, wer du für die andere Person bist: Papa, Mama, Sohn, Tochter, Freund, Partner — oder ein eigenes Wort; jede Nachricht trägt diesen Namen.',
+    'Eine wartende Verbindung zeigt den sechsstelligen Code nicht mehr als Namen; er steht jetzt in der Statuszeile.',
+    'Oben im Chat steht „Du bist Papa · Mit Sohn“, so lassen sich die Seiten nicht verwechseln.',
+  ],
+  es: [
+    'Los nombres ahora dicen quién eres para la otra persona: Papá, Mamá, Hijo, Hija, Amigo, Pareja, o tu propia palabra; cada mensaje lleva ese nombre.',
+    'Una conexión pendiente ya no muestra el código de seis caracteres como si fuera un nombre; pasa a la línea de estado.',
+    'La cabecera del chat indica «Eres Papá · Con Hijo», así no se confunden los lados.',
+  ],
+  pt: [
+    'Os nomes agora dizem quem você é para a outra pessoa: Pai, Mãe, Filho, Filha, Amigo, Parceiro, ou uma palavra sua; cada mensagem leva esse nome.',
+    'Uma conexão pendente não mostra mais o código de seis caracteres como nome; ele foi para a linha de status.',
+    'O topo da conversa indica «Você é Pai · Com Filho», sem confundir os lados.',
+  ],
+  ru: [
+    'Имя теперь означает, кем вы приходитесь друг другу: папа, мама, сын, дочь, друг, партнёр — или своё слово; у каждого сообщения есть это имя.',
+    'Ожидающее подключение больше не показывает шестизначный код вместо имени — код переехал в строку состояния.',
+    'В шапке чата написано «Вы — папа · С сыном», стороны больше не путаются.',
+  ],
+};
+
 /** v2.9.5 —— 帧率角标、安卓显示模式锁定、桌面遮挡检测 */
 const V295_CHANGELOG = {
   'zh-CN': [
@@ -6015,6 +6069,7 @@ const CHANGELOG_UI_STRINGS = {
   TRANSLATIONS[lang]['changelog.v295'] = V295_CHANGELOG[lang] || V295_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v296'] = V296_CHANGELOG[lang] || V296_CHANGELOG.en;
   TRANSLATIONS[lang]['changelog.v297'] = V297_CHANGELOG[lang] || V297_CHANGELOG.en;
+  TRANSLATIONS[lang]['changelog.v298'] = V298_CHANGELOG[lang] || V298_CHANGELOG.en;
   Object.assign(TRANSLATIONS[lang], CHANGELOG_UI_STRINGS[lang] || CHANGELOG_UI_STRINGS.en);
 });
 

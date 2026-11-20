@@ -107,8 +107,18 @@ const BT = {
   'bond.codeLabel': ['TA 给你的六位口令', 'TA 給你的六位口令', 'The six characters they gave you'],
   'bond.codeReady': ['口令在这儿', '口令在這兒', 'Here’s your code'],
   'bond.codeHint': ['把这六位念给 TA，或者直接发给 TA。24 小时内有效。', '把這六位唸給 TA，或直接傳給 TA。24 小時內有效。', 'Read these six to them or send them over. Good for 24 hours.'],
-  'bond.name': ['让 TA 怎么叫你', '讓 TA 怎麼叫你', 'What should they call you'],
-  'bond.nameHint': ['最多八个字，会显示给 TA 看', '最多八個字，會顯示給 TA 看', 'Up to 8 characters, shown to them'],
+  'bond.name': ['你是 TA 的', '你是 TA 的', 'You are their'],
+  'bond.nameHint': ['选一个，或者自己写。TA 那边看到的称呼，就是它。', '選一個，或自己寫。TA 那邊看到的稱呼，就是它。', 'Pick one or type your own — this is how they will see you.'],
+  'bond.nameCustom': ['或者自己写一个称呼', '或者自己寫一個稱呼', 'Or type your own'],
+  'bond.rel.dad': ['爸爸', '爸爸', 'Dad'],
+  'bond.rel.mom': ['妈妈', '媽媽', 'Mom'],
+  'bond.rel.son': ['儿子', '兒子', 'Son'],
+  'bond.rel.daughter': ['女儿', '女兒', 'Daughter'],
+  'bond.rel.friend': ['朋友', '朋友', 'Friend'],
+  'bond.rel.partner': ['伴侣', '伴侶', 'Partner'],
+  'bond.you': ['你', '你', 'You'],
+  'bond.youAre': ['你是', '你是', 'You are'],
+  'bond.threadWith': ['和', '和', 'With'],
   'bond.copy': ['复制', '複製', 'Copy'],
   'bond.copied': ['已复制', '已複製', 'Copied'],
   'bond.waiting': ['等 TA 过来', '等 TA 過來', 'Waiting for them'],
@@ -1490,12 +1500,17 @@ function bondRowHTML(bond) {
     : bond.status === 'pending'
       ? bt('bond.waitConfirm')
       : bt('bond.waiting');
+  // 还没连上时没有对方的称呼，显示功能名而不是把六位口令当成名字
+  const label = bond.peerName || bt('tool.bond');
+  const state = bond.status === 'waiting' && bond.code
+    ? `${stateText} · ${bond.code}`
+    : stateText;
   return `
     <button type="button" class="bp-bond" data-bond="${esc(bond.id)}">
       <span class="bp-bond__avatar">${bond.status === 'active' ? '🤝' : '⋯'}</span>
       <span class="bp-bond__main">
-        <span class="bp-bond__name">${esc(bond.peerName || bond.code || '')}</span>
-        <span class="bp-bond__state">${esc(stateText)}${unread ? ` · ${unread}` : ''}</span>
+        <span class="bp-bond__name">${esc(label)}</span>
+        <span class="bp-bond__state">${esc(state)}${unread ? ` · ${unread}` : ''}</span>
       </span>
     </button>
   `;
@@ -1534,21 +1549,42 @@ function renderBondTool() {
   `;
 }
 
+const BOND_REL_KEYS = ['dad', 'mom', 'son', 'daughter', 'friend', 'partner'];
+
+/** 称呼是「你在这段关系里的身份」，不是对方的名字：爸爸选爸爸，儿子选儿子，两边各自看到对方 */
+function bondNameFieldHTML(inputId) {
+  return `
+    <div class="bp-field">
+      <label class="bp-field__label" for="${inputId}">${esc(bt('bond.name'))}</label>
+      <div class="bp-chips" style="margin-bottom:0.5rem">
+        ${BOND_REL_KEYS.map((r) => `<button type="button" class="bp-btn bp-btn--ghost" data-bond-rel="${r}">${esc(bt(`bond.rel.${r}`))}</button>`).join('')}
+      </div>
+      <input id="${inputId}" class="bp-input" maxlength="8" placeholder="${esc(bt('bond.nameCustom'))}">
+    </div>
+    <p class="bp-line--dim">${esc(bt('bond.nameHint'))}</p>
+  `;
+}
+
 function openBondCreate() {
   const state = api?.getState?.() || {};
   const overlay = openSheet({
     title: bt('bond.create'),
     html: `
-      <div class="bp-field">
-        <label class="bp-field__label" for="bp-bond-name">${esc(bt('bond.name'))}</label>
-        <input id="bp-bond-name" class="bp-input" maxlength="8" value="">
-      </div>
-      <p class="bp-line--dim">${esc(bt('bond.nameHint'))}</p>
+      ${bondNameFieldHTML('bp-bond-name')}
       <p class="bp-line--dim">${esc(state.currentCity?.name || '')}</p>
       <div class="bp-actions"><button type="button" class="bp-btn bp-btn--primary" data-do-create>${esc(bt('bond.create'))}</button></div>
     `,
   });
   overlay.addEventListener('click', async (e) => {
+    const rel = e.target.closest('[data-bond-rel]');
+    if (rel) {
+      const input = $('#bp-bond-name', overlay);
+      if (input) {
+        input.value = bt(`bond.rel.${rel.dataset.bondRel}`);
+        input.focus();
+      }
+      return;
+    }
     if (!e.target.closest('[data-do-create]')) return;
     const name = String($('#bp-bond-name', overlay)?.value || '').trim().slice(0, 8);
     const city = state.currentCity;
@@ -1590,14 +1626,20 @@ function openBondJoin() {
         <label class="bp-field__label" for="bp-join-code">${esc(bt('bond.codeLabel'))}</label>
         <input id="bp-join-code" class="bp-input bp-input--code" maxlength="6" autocomplete="off" spellcheck="false">
       </div>
-      <div class="bp-field">
-        <label class="bp-field__label" for="bp-join-name">${esc(bt('bond.name'))}</label>
-        <input id="bp-join-name" class="bp-input" maxlength="8">
-      </div>
+      ${bondNameFieldHTML('bp-join-name')}
       <div class="bp-actions"><button type="button" class="bp-btn bp-btn--primary" data-do-join>${esc(bt('bond.join'))}</button></div>
     `,
   });
   overlay.addEventListener('click', async (e) => {
+    const rel = e.target.closest('[data-bond-rel]');
+    if (rel) {
+      const input = $('#bp-join-name', overlay);
+      if (input) {
+        input.value = bt(`bond.rel.${rel.dataset.bondRel}`);
+        input.focus();
+      }
+      return;
+    }
     if (!e.target.closest('[data-do-join]')) return;
     const code = String($('#bp-join-code', overlay)?.value || '').trim().toUpperCase();
     const name = String($('#bp-join-name', overlay)?.value || '').trim().slice(0, 8);
@@ -1721,12 +1763,17 @@ function openThreadSheet(bondId) {
 
   const build = () => {
     const list = BOND.getMessages(bondId);
+    const peer = bond.peerName || bt('tool.bond');
     const thread = list.length
-      ? list.map((m) => `
+      ? list.map((m) => {
+        const who = m.from === 'me' ? bt('bond.you') : peer;
+        return `
         <div class="bp-msg ${m.from === 'me' ? 'bp-msg--me' : ''}">
+          <span class="bp-msg__from">${esc(who)}</span>
           <span>${esc(m.body)}</span>
           <span class="bp-msg__time">${esc(new Date(m.at).toTimeString().slice(0, 5))}</span>
-        </div>`).join('')
+        </div>`;
+      }).join('')
       : `<p class="bp-line--dim">${esc(bt('bond.noMsg'))}</p>`;
     const tpls = [
       ['weather', 'bond.line.umbrella'],
@@ -1747,7 +1794,11 @@ function openThreadSheet(bondId) {
     `;
   };
 
-  const overlay = openSheet({ title: bond.peerName || bt('bond.thread'), html: build() });
+  const peer = bond.peerName || bt('tool.bond');
+  const titleParts = [];
+  if (bond.myName) titleParts.push(`${bt('bond.youAre')} ${bond.myName}`);
+  titleParts.push(`${bt('bond.threadWith')} ${peer}`);
+  const overlay = openSheet({ title: titleParts.join(' · '), html: build() });
   overlay.addEventListener('click', async (e) => {
     const tpl = e.target.closest('[data-tpl]');
     if (tpl) {
